@@ -1,0 +1,23 @@
+# This repository stores reports only - never source code, secrets, or
+# build output. This .gitignore is a backstop, not a substitute for manually
+# scanning report content before every commit (see README.md).
+
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials.json
+.credentials.json
+*.sqlite
+*.sqlite3
+*.db
+node_modules/
+dist/
+build/
+*.log
+.DS_Store
+Thumbs.db
