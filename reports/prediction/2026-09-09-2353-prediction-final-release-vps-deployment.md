@@ -1,5 +1,14 @@
 # FINAL PREDICTION MARKET RELEASE AND VPS DEPLOYMENT — Phase 7B-2 Observability
 
+## Addendum (2026-09-09, same day, ~16:00 UTC)
+
+The `HANDOFF.md` docs-only commit (`c3704c6`, PR #29) carried a `[skip ci]` marker in its message, but the workflow triggered anyway (run `34373225543`) — `[skip ci]` was not honored by this repository's Actions configuration for this push. This redeployed automatically, same as any other push to `main`.
+
+Consequences verified directly on the VPS after this second run completed (all steps green, including "Deliver release to production"):
+- **Actual final deployed commit: `c3704c6ba0969cf940e85350d6eb115dcc9fc341`**, not `7827de5` as stated below — `readlink -f /opt/signalverse/app` confirms this.
+- No code or runtime file changed between `7827de5` and `c3704c6` (the only diff is `HANDOFF.md`, which is not part of the bundled `api/*.mjs` or the built client), so every finding below (health checks, job gates, zero autonomous trades, Discovery/Shadow Entry activity) was re-verified fresh against `c3704c6` and is unchanged: API 200s, `autonomous-status` still 401 without auth, `jobs.d` gates identical, `prediction_autonomous_trades` total still 0, `prediction_markets.last_scanned_at` fresh (15:56 UTC), zero interruption to the running Discovery/Shadow Entry ticks through the redeploy.
+- No action is needed as a result of this — it is noted here only so the recorded "ending commit" is the one actually verified live on production, not the one intended before the docs commit landed.
+
 ## Metadata
 
 - Date: 2026-09-09
@@ -9,7 +18,7 @@
 - Repository: signal0verse/signalverse-main
 - Branch: farzam (integrated into main via PR)
 - Starting commit (farzam, before this task): 7c067447f9e6bd8443e1359785d5e3671510da79
-- Ending commit (production/main): 7827de571d414af872757be15fbe2148caedad9e (code) / c3704c6ba0969cf940e85350d6eb115dcc9fc341 (HANDOFF.md docs-only follow-up, `[skip ci]`, no redeploy)
+- Ending commit (production/main): **c3704c6ba0969cf940e85350d6eb115dcc9fc341** — actual final deployed commit, confirmed live via `readlink -f /opt/signalverse/app` (see Addendum above; `[skip ci]` on this docs-only commit was not honored and it redeployed, carrying no code/runtime change over 7827de5)
 
 ## Objective
 
