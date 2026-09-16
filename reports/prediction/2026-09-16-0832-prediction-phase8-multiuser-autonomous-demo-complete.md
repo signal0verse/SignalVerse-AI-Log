@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-16
 **Scope:** Real implementation (not design-only). Branch `prediction-phase8-multiuser-autonomous-demo`, PR [#69](https://github.com/signal0verse/signalverse-main/pull/69), merge commit `35bbb34`.
-**Status:** Code implemented, tested, and confirmed live in production. **The DB migration this phase requires has NOT been applied yet** — it needs an owner-run `psql` step (exact commands in Section 26). Autonomous Demo Entry (`entry_real`) remains disabled; no autonomous Demo position has been opened by this phase (nor could one be, until the migration lands — Section 19 could not be attempted).
+**Status:** Code implemented, tested, and confirmed live in production. **Update (2026-09-16, ~08:50 UTC): the owner ran the migration commands from Section 26 themselves; the migration applied cleanly (`BEGIN` → `ALTER TABLE` → `CREATE TABLE` → `GRANT` → `NOTIFY` → `COMMIT`, zero errors) and has been independently re-verified read-only via the PostgREST API from this session (`prediction_autonomous_user_accounts` is queryable and empty; `prediction_autonomous_trades.telegram_id` is queryable; total row count still 0, confirming no historical data was touched).** Autonomous Demo Entry (`entry_real`) remains disabled; no autonomous Demo position has been opened by this phase yet — Section 19's first-real-test still requires at least one user to opt in via the now-functional "My Settings" UI, then the scheduler gate to be installed/enabled (Section 26's remaining steps).
 
 ---
 
@@ -169,30 +169,27 @@ Backup completed (Section 18). The migration is additive-only (`ADD COLUMN`, `CR
 - Branch `prediction-phase8-multiuser-autonomous-demo` → PR [#69](https://github.com/signal0verse/signalverse-main/pull/69) → CI green → merged (`35bbb34`) → `production-ci.yml`'s "Deliver release to production" green.
 - **Production verification (read-only SSH, post-deploy):** `/opt/signalverse/app` → `/opt/signalverse/releases/35bbb3466b6d647404c0280165d4d9f0f02365c4` (exact merge commit). `grep -c` for Phase 8 markers (`prediction_autonomous_user_accounts`, `userMatchesCategory`, `NO_ELIGIBLE_USERS`) against the live bundle returned 7 matches — the new code is genuinely running, not just built. `jobs.d/` unchanged (`prediction-enter-cron`/`prediction-learn-cron` still absent). An unauthenticated request to the new `autonomous-account` endpoint correctly returned `{"error":"Not authenticated"}`.
 - **Live scheduler health post-deploy:** the very next `discover` (08:25:49 UTC) and `entry_shadow` (08:25:54 UTC) ticks after deploy both completed with `success:true` against real production data (43 eligible markets, 50 candidates scanned, realistic skip-reason distribution) — proving the heavily-refactored `autonomousEntryTick` function still works correctly end-to-end in production for the code path that IS currently live (shadow observation). `resolve` also ticked successfully (08:26:58 UTC).
-- **Migration status:** confirmed via a direct query that `prediction_autonomous_user_accounts` does not exist yet (`PGRST205: Could not find the table`) — the migration genuinely has not been applied, exactly as expected at this point in the rollout.
-
-### Exact owner-run commands to apply the migration
-
-This session does not execute `psql` DDL against the VPS directly (the same "do not route around the platform's remote-write restriction, hand the owner exact commands" posture used for every prior VPS write in this project, Phase 5 onward). `npm run backup` has already been run (Section 18). From this machine (owner's own shell):
+- **Migration status: APPLIED AND VERIFIED (update, ~08:50 UTC).** Initial check (immediately post-deploy) confirmed via a direct query that `prediction_autonomous_user_accounts` did not exist yet (`PGRST205: Could not find the table`) — as expected, since the code was deployed ahead of the migration by design (Section 18). This session does not execute `psql` DDL against the VPS directly (the same "do not route around the platform's remote-write restriction, hand the owner exact commands" posture used for every prior VPS write in this project, Phase 5 onward), so the owner ran the two commands below themselves, from their own PowerShell:
 
 ```bash
 scp -P 22123 -i ~/.ssh/signalverse_contabo_ed25519 migrations/prediction_market_multiuser_autonomous.sql root@13.140.149.56:/tmp/prediction_market_multiuser_autonomous.sql
 ssh -p 22123 -i ~/.ssh/signalverse_contabo_ed25519 root@13.140.149.56 "sudo -u postgres psql -v ON_ERROR_STOP=1 -d signalverse_cutover2 -f /tmp/prediction_market_multiuser_autonomous.sql"
 ```
 
-After it completes, a session with read access can confirm success via `SELECT * FROM prediction_autonomous_user_accounts LIMIT 1;` (expected: empty result, not an error) and `\d prediction_autonomous_trades` (expected: `telegram_id` column present, `NOT NULL`).
+Output: every statement succeeded in order (`BEGIN`, `ALTER TABLE`×2, `UPDATE 0`, `CREATE INDEX`, `DROP INDEX`, `CREATE INDEX`, `CREATE TABLE`, `CREATE INDEX`, `GRANT`, `NOTIFY`, `COMMIT`) — zero errors, and `ON_ERROR_STOP=1` means a partial/silent failure was not possible. This session then independently re-verified read-only via the PostgREST API (not trusting the psql transcript alone): `prediction_autonomous_user_accounts` is now queryable (0 rows, as expected — no user has configured anything yet), `prediction_autonomous_trades` now exposes a queryable `telegram_id` column, and that table's total row count is still exactly 0 — confirming the migration was purely structural and touched zero historical data, exactly as designed.
 
 ## 27. Production verification checklist (per task Section 27)
 
 | Item | Status |
 |---|---|
-| Authenticated user account retrieval | Endpoint deployed and auth-enforced; full read/write cycle pending migration |
-| User Demo capital / settings / category preferences | Code deployed; cannot be exercised end-to-end until the table exists |
+| Authenticated user account retrieval | Endpoint deployed, auth-enforced, and now backed by a live table (migration applied) — end-to-end read/write cycle not yet exercised by a real user |
+| User Demo capital / settings / category preferences | Code + schema both live; no user has configured anything yet |
 | User-specific market filtering | Enforced in code (Section 7), verified structurally; no live users to observe yet |
 | Open/closed positions, resolution, account calculations | Code deployed and reuses already-proven resolution logic (Section 10); no positions exist yet to observe |
 | Authorization | Verified live (401 on unauthenticated request) |
 | Scheduler state | Verified: `entry_real`/`learn` absent, `resolve`/`discovery`/`shadow-entry` present and ticking successfully post-deploy |
 | Demo Entry / Real Trading state | `entry_real` disabled; Real Trading architecturally OFF (`mode==='real'` still 501) |
+| DB schema | `prediction_autonomous_user_accounts` exists and is queryable; `prediction_autonomous_trades.telegram_id` exists and is queryable; 0 historical rows affected |
 
 ## 28. Not over-engineered
 
@@ -229,11 +226,12 @@ Reused: the `fast_trader_sessions` per-user-table pattern, the `settings` key/va
 - [x] CI passes
 - [x] Production deploy verified
 - [x] Production smoke tests pass (scheduler ticks green post-deploy)
-- [ ] Autonomous Demo activation — **explicitly documented as pending owner action** (migration, then at least one user opt-in, then the separately-authorized gate activation)
+- [x] DB migration applied and independently re-verified read-only (2026-09-16 ~08:50 UTC)
+- [ ] Autonomous Demo activation — **explicitly documented as pending owner action** (at least one user opt-in via the now-functional UI, then the separately-authorized gate activation)
 
 ## 30. Verdict and exact next step
 
-**NOT YET READY for activation — but only because of one specific, well-understood, owner-actionable blocker (the DB migration), not any unresolved design or code question.**
+**Migration blocker cleared. Code + schema are both live in production. Still NOT YET READY for gate activation — the remaining steps are user opt-in and the separately-authorized scheduler activation, not any unresolved design or code question.**
 
 Exact next step, in order:
 1. Owner runs the two commands in Section 26 (backup already done).
