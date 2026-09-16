@@ -168,7 +168,7 @@ If a future, separately-approved phase wants to actually observe a real (virtual
 
 ## 7. Tests
 
-No code was changed, so this is a pure regression/sanity check, not validation of anything new:
+No code was changed, so this is a pure regression/sanity check, not validation of anything new. Full 18-file suite, run to completion:
 
 ```
 scripts/prediction-autonomous-sizing-test.mjs      : 8 passed, 0 failed
@@ -177,8 +177,22 @@ scripts/prediction-duplicate-protection-test.mjs   : 8 passed, 0 failed
 scripts/prediction-market-engine-test.mjs          : 48 passed, 0 failed
 scripts/prediction-market-lifecycle-test.mjs       : 41 passed, 0 failed
 scripts/prediction-market-lookahead-test.mjs       : 11 passed, 0 failed
+scripts/prediction-market-position-credit-test.mjs : 13 passed, 0 failed
+scripts/prediction-observability-test.mjs          : 48 passed, 0 failed
+scripts/prediction-ranking-test.mjs                : 5 passed, 0 failed
+scripts/prediction-resolution-lookup-test.mjs      : 24 passed, 0 failed
+scripts/prediction-revalidation-test.mjs           : 12 passed, 0 failed
+scripts/prediction-settlement-test.mjs             : 17 passed, 0 failed
+scripts/prediction-shadow-classification-test.mjs  : 4 passed, 0 failed
+scripts/prediction-shadow-entry-test.mjs           : 15 passed, 0 failed
+scripts/prediction-shadow-resolution-test.mjs      : 17 passed, 0 failed
+scripts/prediction-side-aware-test.mjs             : 16 passed, 0 failed
+scripts/prediction-time-horizon-gate-test.mjs      : 10 passed, 0 failed
+scripts/prediction-tradeability-gate-test.mjs      : 10 passed, 0 failed
+-------------------------------------------------------------------------
+TOTAL: 18 files, 319 checks, 0 failed, 0 skipped
 ```
-(Remaining files in the standard 18-file suite were not required to re-verify anything for this audit, since no line of `api/predictions.ts` was touched — the six above were run as a live sanity check that this session's environment and the deployed source agree; all passed cleanly, consistent with zero drift.)
+Identical to every prior phase's own count (no code changed since Phase 4) — a clean regression confirmation, not evidence of anything new in this audit.
 
 ---
 
