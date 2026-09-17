@@ -2,6 +2,8 @@
 
 **Date:** 2026-09-17 · **Scope:** Real Binance Futures Re-Analyze protection replacement only. **NOT DEPLOYED. NOT pushed/merged to `main`. No PR opened. No real Binance order/position touched.** All code committed to the existing feature branch `futures-liquidation-feasibility-fix` only, awaiting explicit review/approval before any deploy step.
 
+> **2026-09-17 correction (pre-approval review):** the initial implementation below used a 0.5% relative tolerance (`REANALYSIS_FORMULA_TOLERANCE_PCT`) to decide whether Binance's actual `triggerPrice` matched the pending proposal. This was flagged as too coarse to represent genuine exchange rounding and was removed before approval - see §8 for the corrected rule (Binance symbol `tickSize` normalization) and §12 for the updated test results. Nothing else in this report changed as a result: the architecture, the `-4130` detection, the state machine, and every other safety property below are exactly as originally implemented.
+
 ## 1. Why this exists — forensic background
 
 A real, user-conducted controlled live test on Production (CAKEUSDT LONG) and an independent reproduction on **Binance Futures Testnet** conclusively established:
@@ -99,8 +101,8 @@ The client sends **only the trade `id`** — verified structurally by a dedicate
 
 1. Re-reads `queryBinanceAlgoOrders` (the exact same read-only function this feature already uses elsewhere) — never trusts anything cached.
 2. Finds the live `STOP_MARKET`/`TAKE_PROFIT_MARKET` matching the position's close side.
-3. Compares each leg's **actual** `triggerPrice` to the proposal's `proposed_stop_loss`/`proposed_tp1` within `REANALYSIS_FORMULA_TOLERANCE_PCT` (0.5% — the same existing constant this codebase already reserves specifically for "floating-point/rounding noise only, not a new Strategy threshold").
-4. **Match on both legs:** persists Binance's **actual** `triggerPrice`/`algoId` values (never the theoretical proposal) into `copy_trades`, marks the proposal `CONFIRMED`.
+3. **[Corrected 2026-09-17]** Reads the pair's real `tickSize`/price precision via the existing `getSymbolInfo` (the same call `runFuturesReanalysis` already makes before ever sending a proposal to Binance), then normalizes **both** the proposal's value and Binance's actual `triggerPrice` to that exact tick grid via the existing `binanceRoundStep` helper, and requires the two normalized values to be equal (`floatEq`'s own `1e-9` epsilon - IEEE floating-point noise only, never a price tolerance). A relative percentage tolerance was deliberately rejected: it would accept a materially different price as "confirmed" merely because it happened to be numerically close, which is not the same thing as genuine exchange-precision rounding. Applied **independently to each leg** — a matching SL can never compensate for a mismatched TP or vice versa.
+4. **Match on both legs:** persists Binance's **actual** `triggerPrice`/`algoId` values (never the theoretical proposal, and never the tick-rounded value either - the literal number Binance returned) into `copy_trades`, marks the proposal `CONFIRMED`.
 5. **No match:** records `last_check_result: 'NOT_CONFIRMED'` on the (still-`PENDING_CONFIRMATION`) proposal row; `copy_trades` is untouched.
 
 ## 9. Reconciliation behavior
@@ -113,7 +115,7 @@ The existing regular reconciliation tick (`syncRealBinanceTrades`'s protection-v
 - ✅ **No private Binance `/bapi/` endpoint was used or referenced anywhere in the implementation** — confirmed by a full-text search of the diff.
 - ✅ **Existing Binance protection remains untouched while a proposal is pending** — `cancelBinanceAlgoOrderById` is never reached on this path (tests 2/12).
 - ✅ **`copy_trades.stop_loss`/`tp1` are not updated until `confirmProtectionProposal` finds a genuine Binance-side match** (tests 4–6).
-- ✅ **Actual Binance values, not theoretical proposal values, are stored after successful verification** (test 5: rounded actual values 94.03/123.9 are stored, not the proposed 94/124).
+- ✅ **Actual Binance values, not theoretical proposal values, are stored after successful verification** (test 18: genuinely tick-normalizable actual values 94.004/124.006 are stored, not the proposed 94/124).
 - ✅ **`-4130` alone cannot trigger the liquidation fail-safe close** — `resolvedByReanalysis = reResult.finalAction === 'SL_TP_UPDATED'` still only matches that one literal value; `PROTECTION_UPDATE_PENDING_CONFIRMATION` is just another non-`SL_TP_UPDATED` outcome, structurally proven (test 10/13) and end-to-end proven (2 new tests: AT_RISK still closes via the *same, unmodified* fail-safe; SAFE stays fully `OPEN`).
 - ✅ **The Supervisor cannot bypass or influence confirmation** — `confirmProtectionProposal`'s source contains no reference to the Supervisor/Engine at all (test 11).
 - ✅ **The browser cannot spoof a confirmation** — only `id` is ever read from the request body (test 14).
@@ -122,16 +124,22 @@ The existing regular reconciliation tick (`syncRealBinanceTrades`'s protection-v
 
 This project's i18n architecture is the inline `fa ? "…" : "…"` ternary convention used throughout `App.tsx` (there is no separate keyed-dictionary system) — the new banner follows this exact pattern, including the RTL `text-right`/`flex-row-reverse` gating already used everywhere else in the same file. All 8 suggested phrases (title, Current/Proposed SL/TP, waiting status, confirm button, not-confirmed message) exist in both languages — verified by a dedicated test that scans the actual rendered banner source for every required Persian/English pair (test 16), plus a separate test confirming the RTL convention is followed (test 17). Internal enum values (`PENDING_CONFIRMATION`, `CONFIRMED`, `STOP_MARKET`, `-4130`, etc.) are correctly left untranslated.
 
-## 12. Tests executed
+## 12. Tests executed (post-correction)
 
 ```
-node --test scripts/futures-reanalysis-test.mjs            → 118/118 PASS (98 pre-existing + 20 new)
-node --test scripts/futures-real-execution-fault-test.mjs  → 109/109 PASS (107 pre-existing + 2 new end-to-end)
+node --test scripts/futures-reanalysis-test.mjs            → 120/120 PASS (98 pre-existing + 20 original new + 3 tick-size-correction tests, 1 test rewritten in place)
+node --test scripts/futures-real-execution-fault-test.mjs  → 109/109 PASS (no regression - this file's 2 end-to-end -4130 tests use exact/materially-different values, unaffected by the tolerance rule change)
 node scripts/futures-liquidation-feasibility-test.mjs      → 64/64 PASS (no regression)
-npx tsc --noEmit -p .                                       → 0 errors in api/copytrade.ts / src/app/App.tsx (3 pre-existing, unrelated errors elsewhere in App.tsx untouched by this change)
+npx tsc --noEmit -p .                                       → 0 errors in api/copytrade.ts / src/app/App.tsx (same 3 pre-existing, unrelated errors elsewhere in App.tsx, untouched by this change)
 npm run build                                                → PASS (web + admin)
-esbuild api/copytrade.ts api/analyze.ts --bundle --platform=node --format=esm --packages=external → PASS
+esbuild api/copytrade.ts --bundle --platform=node --format=esm --packages=external → PASS
 ```
+
+**Tick-size-correction regression tests added to `scripts/futures-reanalysis-test.mjs`:**
+- Test 18 (rewritten from the original test 5): a genuine tick-size-normalization difference (both values floor to the identical `0.01` tick bucket) → `CONFIRMED`, and the exact actual values (94.004/124.006) are persisted, not the theoretical proposal (94/124).
+- Test 19 (new): a value that is only 0.32% away from the proposal — well inside the OLD, now-removed 0.5% tolerance — but rounds to a genuinely different tick bucket (94.3 vs. proposed 94.0 at `tickSize=0.01`) → `NOT_CONFIRMED`, `copy_trades` unchanged. This is the specific regression test proving the old percentage rule is gone.
+- Test 20 (new): SL matches exactly; TP is materially different (a different tick bucket) → overall `NOT_CONFIRMED` — proves both legs are checked independently and one matching leg can never compensate for the other.
+- Tests 4/6/6b (unchanged, still passing): exact match → `CONFIRMED`; genuinely different values → `NOT_CONFIRMED` with `copy_trades` unchanged and the proposal remaining `PENDING_CONFIRMATION`; no live orders found at all → `NOT_CONFIRMED`, no crash.
 
 No lint script exists in this project's `package.json` (`tsc`/`build`/the `.mjs` test suites are the full existing validation surface) — all of it was run, none skipped.
 
