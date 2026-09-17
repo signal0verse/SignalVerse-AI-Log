@@ -66,10 +66,14 @@ New table `futures_protection_proposals` (see the migration file's own extensive
                              │
         ┌────────────────────┼─────────────────────┬───────────────────────┐
         │                    │                      │                       │
-  user confirms,       user confirms,        position closes        a materially different
-  Binance matches      Binance does NOT       before confirmation     new proposal supersedes
-  (within 0.5%          match                                         this one
-   rounding tolerance)        │                      │                       │
+  user confirms;       user confirms;        position closes        a materially different
+  Binance's actual     Binance's actual      before confirmation     new proposal supersedes
+  triggerPrice          triggerPrice does                                   this one
+  matches the           NOT match, after
+  proposed value,        normalization
+  after Binance
+  tickSize
+  normalization                 │                      │                       │
         │              (stays PENDING,        ┌─────────────┐        ┌──────────────┐
         ▼              last_check_result=      │   EXPIRED   │        │  INVALIDATED  │
   ┌───────────┐         NOT_CONFIRMED)         └─────────────┘        └──────────────┘
