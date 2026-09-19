@@ -7,6 +7,7 @@
 - **Executable Production SHA:** `8c27da4b8c12917c8e4d9968fe57a5e10f6a66e6`
 - **Production CI:** [run 35438837537](https://github.com/signal0verse/signalverse-main/actions/runs/35438837537) — SUCCESS in 3m42s
 - **Documentation PR:** [#90](https://github.com/signal0verse/signalverse-main/pull/90), merged as `2957be4e2ba100ef191d0fbab4f5c9f743c8d0f1` with `[skip ci]`
+- **Final-state documentation PR:** [#91](https://github.com/signal0verse/signalverse-main/pull/91), merged as `ee00db43f01cddb0547ece1e43e09ad5152d603a` with `[skip ci]`
 - **Outcome:** B — infrastructure rolled out; public observation ran; no natural qualification; Demo stayed disabled; Real stayed locked
 
 ## Result
@@ -20,9 +21,10 @@ Demo setting, pending signal or trade.
 The observation did not qualify a whale. The feed showed recurring WebSocket gaps and
 recovery failures. A good pre-restart interval reached `CLOCK_OK`, but the final
 post-restart state was `RECOVERY_REQUIRED / CLOCK_UNKNOWN` because no new source fill
-had arrived and the feed was disconnected at the audit instant. Demo was therefore not
-enabled. No qualification threshold was changed, no qualification was forced and no
-evidence was manufactured.
+had arrived and the feed was disconnected at the audit instant. The Phase 7 stop
+condition was applied: the worker was stopped and disabled. Demo was not enabled. No
+qualification threshold was changed, no qualification was forced and no evidence was
+manufactured.
 
 ## Reviewed release and deployment
 
@@ -108,7 +110,9 @@ execution with `status=200/CHDIR` because the release tree is group-private to t
 application user. The worker was not added to that group. The standard `acl` package
 was installed and a named read/execute ACL was applied only to the release tree, with
 an inherited ACL for later releases. The user remained unable to read the main env.
-The service then started successfully.
+The service then started successfully for the bounded observation. It was stopped and
+disabled after the unhealthy final state; the unit, user and protected env remain
+installed for a later reviewed fix and rerun.
 
 The unit has `NoNewPrivileges`, `PrivateTmp`, `ProtectSystem=strict`, `ProtectHome`,
 `ProtectClock`, `UMask=0077` and restricted address families. The final
@@ -124,8 +128,8 @@ source `185.125.190.58`, stratum 2, normal leap, +0.550 ms offset, 0.934 ms jitt
 Three previously observed public Hyperliquid wallets were placed in slots 1–3 for the
 existing owner. No settings row was created, so the runtime used the fail-closed
 `PUBLIC_OBSERVATION` default. The observation ran from the successful start at
-`2026-09-19T11:15:27Z` through the final audit at `11:29:53Z`, including a controlled
-restart at `11:23:33Z`.
+`2026-09-19T11:15:27Z` through the last active snapshot at `11:35:51Z`, a duration of
+20 minutes 24 seconds, including a controlled restart at `11:23:33Z`.
 
 | Metric | Actual result |
 | --- | --- |
@@ -144,7 +148,7 @@ restart at `11:23:33Z`.
 One pre-restart interval had all three wallets live, a connected feed, zero queue
 backlog, 100 source samples, `CLOCK_OK`, 3.531 ms uncertainty and zero duplicates. The
 feed did not remain stable: the first lifecycle reached 10 gap events and 17 recovery
-failures. The final lifecycle after restart reached 11 gaps and 11 recovery failures.
+failures. The final lifecycle after restart reached 23 gaps and 23 recovery failures.
 
 The controlled restart changed PID. Four attempted replacement starts were rejected by
 the durable 45-second lease with `WORKER_ALREADY_RUNNING`. After lease expiry, systemd
@@ -152,10 +156,13 @@ started one new holder automatically; SHA, Real lock and zero pending/trades wer
 preserved. The new process received no source fill before final audit, so it correctly
 did not inherit earlier clock samples and remained `CLOCK_UNKNOWN`.
 
-At the final audit the worker was active/enabled and its queue was empty, but the feed
-was disconnected, one wallet was stale and health was `RECOVERY_REQUIRED`. Two wallet
-histories remained incomplete. This blocks a stable observation claim and every Demo
-gate.
+At the last active snapshot the worker queue was empty, but the feed was disconnected,
+one wallet was stale and health was `RECOVERY_REQUIRED`. Two wallet histories remained
+incomplete. This blocks a stable observation claim and every Demo gate. The worker was
+then stopped and disabled. At `2026-09-19T11:36:59Z`, main/admin/PostgREST/PostgreSQL
+were active, main health was HTTP 200, the executable SHA was unchanged, all 28,981
+events and 100 jobs were preserved, settings/pending/trades remained zero, and both
+Real constraints remained active.
 
 ## Real lock and trading impact
 
@@ -174,15 +181,16 @@ gate.
 - Production CI run 35438837537: success.
 - Active executable Production SHA: `8c27da4b8c12917c8e4d9968fe57a5e10f6a66e6`.
 - Documentation commit: merged by PR #90 as `2957be4e2ba100ef191d0fbab4f5c9f743c8d0f1`.
+- Stop-condition handoff: merged by PR #91 as `ee00db43f01cddb0547ece1e43e09ad5152d603a`.
 - The docs merge used `[skip ci]`; no second executable deployment was started.
 - Repository handoff: `docs/whale-trading-phase7.md`, `HANDOFF.md`, and
   `docs/AI_HANDOFF.md`.
 
 ## Rollback
 
-Immediate operational rollback is to stop and disable only
-`signalverse-whale.service`, pause the three Phase 7 watchlist rows and preserve all
-audit data. Restore the main env from
+The immediate operational rollback was performed: `signalverse-whale.service` is
+stopped and disabled, and the watchlist plus all audit data are preserved. If full
+removal is required, restore the main env from
 `/etc/signalverse/signalverse.env.whale-phase7-before.20260919T111110Z`, restart the
 main service, remove the worker env/unit/user and named release ACLs, and keep standard
 Futures protection running. Application rollback can atomically reactivate
@@ -191,8 +199,8 @@ outage; audit rows must not be deleted to make health look green.
 
 ## Remaining gates
 
-1. Rotate the restricted JWT through the same signing path or stop the worker before
-   `2026-09-20T11:11:10Z`.
+1. Keep the worker stopped. Before any restart, issue a fresh restricted JWT if the
+   current token has expired.
 2. Diagnose recurring WebSocket gaps and recovery failures without relaxing clock,
    completeness or qualification thresholds.
 3. Repeat a substantially longer public observation with connected feed, fresh
