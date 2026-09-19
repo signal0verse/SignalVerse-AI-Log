@@ -10,10 +10,12 @@
 - **Production SHA after executable changes:** `9d3089afce05f00307ba7aee4f3a9e274e082ec6`
 - **Executable PRs:** [#92](https://github.com/signal0verse/signalverse-main/pull/92), [#93](https://github.com/signal0verse/signalverse-main/pull/93), [#94](https://github.com/signal0verse/signalverse-main/pull/94), [#95](https://github.com/signal0verse/signalverse-main/pull/95)
 - **Production CI:** [35442368964](https://github.com/signal0verse/signalverse-main/actions/runs/35442368964), [35442860581](https://github.com/signal0verse/signalverse-main/actions/runs/35442860581), [35443602521](https://github.com/signal0verse/signalverse-main/actions/runs/35443602521), [35444456044](https://github.com/signal0verse/signalverse-main/actions/runs/35444456044) — all SUCCESS
+- **Documentation PR:** [#96](https://github.com/signal0verse/signalverse-main/pull/96), merged as `c9bc4f5db3983fe62b6c6f9c94695aecae9df648`; workflow [35446507638](https://github.com/signal0verse/signalverse-main/actions/runs/35446507638) was canceled before package/deploy because the merge was documentation-only. Production remained on `9d3089af...`.
 - **Publication target:** `signal0verse/SignalVerse-AI-Log`, branch `master`, `reports/futures/whale-trading-v1-phase8-20260919.md`
 - **Publication state:** committed and pushed to `master` after secret/private-account review; exact report commit and remote content verification are recorded in the task final response
 
-## Engineering narrative`n
+## Engineering narrative
+
 Phase 8 continued the deployed Phase 7 foundation. It did not rebuild the Whale
 Trading product, change the central Futures strategy, relax qualification, enable Demo,
 or enable Real. The work diagnosed the exact Production failure chain, corrected the
