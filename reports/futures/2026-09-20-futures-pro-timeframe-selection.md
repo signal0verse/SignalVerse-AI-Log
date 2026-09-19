@@ -9,7 +9,7 @@
 - Repository: `signal0verse/signalverse-main`
 - Branch: `codex/futures-pro-timeframes`
 - Starting commit: `c9bc4f5db3983fe62b6c6f9c94695aecae9df648`
-- Ending commit: `b6a7c15` (local commit)
+- Ending commit: `b6a7c15` (published feature branch)
 
 ## Objective
 
@@ -126,18 +126,19 @@ suite passed. Full-project TypeScript was not a green gate for the reason above.
 
 ## Git Status
 
-The eight task files were committed on `codex/futures-pro-timeframes`. Existing
-untracked user files remain outside the commit. `main` was not modified after the
-feature branch was created.
+The eight task files were committed and pushed on
+`codex/futures-pro-timeframes`. Existing untracked user files remain outside the
+commit. `main` was not modified after the feature branch was created.
 
 ## Commit
 
-Local commit: `b6a7c15` — `feat(futures): add per-coin timeframe selection`.
+Published commit: `b6a7c15` — `feat(futures): add per-coin timeframe selection`.
 
-The attempt to push the source branch was blocked by the host security reviewer
-because implementation egress to the configured origin was not explicitly
-authorized. No workaround was attempted. No pull request exists and no
-Production deployment occurred.
+Source branch:
+`https://github.com/signal0verse/signalverse-main/tree/codex/futures-pro-timeframes`.
+The first push attempt was blocked until the owner explicitly authorized push;
+after that authorization, the branch push succeeded. No pull request exists and
+no Production deployment occurred.
 
 ## Remaining Issues
 
@@ -156,9 +157,9 @@ the change is a safer default, not a hard ban or an Engine repair.
 
 ## Recommended Next Step
 
-Have the owner/supervisor review local commit `b6a7c15`. If publication is
-approved, push the feature branch and review it before merge. Before any
-Production merge, take the required complete database backup, perform the
-isolated restore/migration checks, apply the additive migration, and only then
-release the matching code. Verify the Demo and Real add/edit flows in the app;
-do not place a real order merely to test this setting.
+Have the owner/supervisor review published commit `b6a7c15` and open a pull
+request if merge/release is desired. Before any Production merge, take the
+required complete database backup, perform the isolated restore/migration
+checks, apply the additive migration, and only then release the matching code.
+Verify the Demo and Real add/edit flows in the app; do not place a real order
+merely to test this setting.
