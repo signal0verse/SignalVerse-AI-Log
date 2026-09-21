@@ -32,6 +32,10 @@ test while preserving the step-by-step approval and no-code-change boundary.
   previously stated size/risk/time limits, native protection, cleanup and
   exact signed Funding reconciliation after the settlement delay.
 - Requested a new explicit owner approval. None is assumed by this report.
+- Scheduled one same-thread, read-only check near 2026-09-21 15:45 UTC
+  (23:45 Asia/Kuala_Lumpur). Its prompt forbids orders, credentials, leverage
+  changes, application changes and Production operations; it is only a
+  reminder/readiness follow-up, not an execution authorization.
 
 ## Files Inspected
 
@@ -81,7 +85,8 @@ The nonzero Funding test can only be meaningful across a settlement and after
 the exchange income record is available. A stop/target hit before settlement
 or missing/zero income must be marked INCONCLUSIVE. A ten-minute position limit
 does not make gap/slippage loss impossible. Scheduled Codex tasks run unattended;
-none was created to place an order. After fresh approval, rerun all account and
+none was created to place an order. The single scheduled follow-up is
+read-only. After fresh approval, rerun all account and
 market guards near the event, execute at most one supervised Demo cycle, close
 and verify flat within the agreed window, then reconcile read-only after the
 application's 15-minute delay. Ask before any application change.
