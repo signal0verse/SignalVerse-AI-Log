@@ -1,8 +1,10 @@
-# VPS deployment guard installation — READ-ONLY PREFLIGHT, 2026-09-24 UTC
+# VPS deployment guard — preflight and aborted installation attempt, 2026-09-24 UTC
+
+> **CURRENT RESULT: VPS-GUARD-BLOCKED.** The owner approved installation, but the first staged-file hash check failed at `2026-09-24T13:42:38Z`. The installer stopped before stopping the old receiver, obtaining the deploy lock, creating authorization directories, replacing any active file, or running the denial test. The old push-deploy receiver remains active and enabled. Do **not** execute the earlier proposed commands below: their hash assumptions and Windows `git archive` packaging are invalid. A separately reviewed LF-preserving package and renewed owner direction are required before any retry.
 
 ## Decision and safety boundary
 
-**VPS-GUARD-PREFLIGHT-READY, subject to a fresh no-in-flight-deploy check and the owner's exact approval phrase.** This is a preparation report, **not** an installation report. No candidate file was copied to VPS, no authorization was created/revoked, and no unit, symlink, marker, database, exchange account or Production application was changed. No service was stopped, restarted, disabled or reloaded. The current active application is still the unapproved runtime `85aedfb944a67c94227ac343e911bc64a581e79e`; the old push-deploy control plane remains active and vulnerable until a separately approved cutover.
+The section below records the earlier **read-only preflight**, before the approved attempt. The candidate was subsequently copied only to `/var/tmp` staging, but no active control file, authorization, service, symlink, marker, database, exchange account or Production application was changed. No service was stopped, restarted, disabled or reloaded. The current active application remains the unapproved runtime `85aedfb944a67c94227ac343e911bc64a581e79e`; the old push-deploy control plane remains active and vulnerable until a separately approved corrected cutover.
 
 Evidence was collected read-only via direct SSH to the owner-provided VPS IP/key, not via the Cloudflare domain, at approximately `2026-09-24T12:39:23Z`–`12:46Z`. The implementation source is local branch `codex/production-deploy-control-20260924`, implementation commit `677bc19d94cbf64b18a7e80adad68d1f9a967a83`; branch report HEAD before this preflight is `839925301973b93615a2b4974e6f7b0599fec5ed`. Candidate files are unchanged from the implementation commit. The prior offline evidence is 14/14 control test groups passing on local Node 24, not a live Node 22/systemd acceptance test.
 
@@ -29,7 +31,7 @@ The approval, revocation, claim and consumed directories are all **ABSENT**. The
 
 ## 2. Exact candidate identity and destination
 
-SHA-256 values below are for **committed Git blob bytes at exact commit `677bc19...`**, not possibly CRLF-converted Windows worktree copies. Future staging must use `git archive` from that commit and verify these hashes after transfer and after installation.
+**Correction after the approved attempt:** SHA-256 values below are for the local LF worktree bytes, *not* the Windows-produced `git archive` bytes. The assertion in the original preflight that the archive would preserve these bytes was false. Do not use the packaging command in section 4 for a retry without independent byte verification and Linux executable validation.
 
 | Candidate file | SHA-256 | Future destination | Owner/mode |
 | --- | --- | --- | --- |
@@ -182,4 +184,23 @@ exec 8>&-
 
 Installed hashes, actual file modes, exact actions/timestamps, service stop/start, live denial HTTP and helper results, before/after runtime SHA, marker/link inode+mtime, main PID/start/restart count, artifact-unit journal and GitHub reviewer settings are **NOT APPLICABLE — NOT INSTALLED** in this preflight. The current old hashes and runtime baseline are recorded above. Consequently, merging the branch into application `main` is **NOT YET SAFE**. A later installation/denial report must fill these fields from live evidence; no result may be inferred from this plan or the previous 14 offline test groups.
 
-VPS-GUARD-PREFLIGHT-READY
+## 6. Owner-approved installation attempt — STOPPED BEFORE CUTOVER
+
+The owner provided the exact phrase `APPROVE VPS GUARD INSTALLATION`. A fresh read-only check at `2026-09-24T13:38:33Z` found marker and both app/admin links at `85aedfb944a67c94227ac343e911bc64a581e79e`, main PID `1962862` with `NRestarts=0`, old receiver PID `542667`, and no active/queued deploy artifact. A tar archive of commit `677bc19d94cbf64b18a7e80adad68d1f9a967a83` was staged at `/var/tmp/sv-guard-677bc19.tar`; archive SHA-256 `ccc165b6af37eba65272ce98e966609b655f794d482bf393d2e7e4389a408c3a`. A guard-only installer was staged at `/var/tmp/sv-guard-install-677bc19.sh` and passed `bash -n`. These are staging files, not active deployment files. No application archive, exchange credential or approval was staged.
+
+The installer began at `2026-09-24T13:42:38Z` and passed its runtime/service baseline. It extracted the archive to `/var/tmp/sv-guard-677bc19.stage`, then failed the **first candidate source hash** check and exited with status 1. It did not reach `STAGED_HASHES_PASS`, `systemctl stop`, `systemctl disable`, `flock`, backup, installation, `daemon-reload`, receiver start, or the no-authorization denial request. The installer's generic error message mentioned keeping the receiver disabled; read-only verification proves that this did **not** occur: the old receiver remained active and enabled at PID `542667`.
+
+| Candidate | Expected LF worktree SHA-256 in preflight | Actual staged archive SHA-256 |
+| --- | --- | --- |
+| receiver source | `c4d421918c57b6667ee317a3dfe51068a5c6dc7f89ea6c8fac8c1c13f7c15baa` | `06edd719f30449e751a9765620278da213b81d9537b55059b022cb7799a6e684` |
+| authorization helper | `acfca03b4a4b1d92165efaf937a3217ac609959c3687849f984a00a0795f7c83` | `7b777eb50fd2ed94cd0cdeca60aff4f794434a2856673a45fd4a4dee7a58e6d0` |
+| coordinator | `572651086ee6e622cc858bb1be4db3954115fa09d2ea46e122fc8f9c1b499dec` | `007ac0ee963db0ae2792de59a4a83b6e20e9e596917d432b1ea7a64d5ec006b5` |
+| receiver unit | `7a3d5bdd90472e989578dfdc0747954b4f6847c47a9be07ab8f54459450188b1` | `204eb29c76bc609384842eee7ea7ea4d5792aa7c8b967ad83cf51a69156955df` |
+
+Local comparison found the extracted receiver has 8,752 bytes, 151 CR and 151 LF bytes, while the worktree receiver has 8,601 bytes, zero CR and 151 LF bytes. The global Git setting is `core.autocrlf=true`; the Windows-generated archive converted every LF to CRLF. Text content otherwise compares equal under Git's normalization, but the byte identity and Linux script execution safety do not. This is a **packaging/preflight defect**, not a passed installation test. It must not be worked around by weakening hash checks or accepting a CRLF coordinator.
+
+Final read-only verification at `2026-09-24T13:45:15Z`: active marker and both resolved links remain `85aedfb944a67c94227ac343e911bc64a581e79e`; marker inode/mtime `609128:1790197100`, app link `608973:1790197098`, admin link `8506584:1790197098` are unchanged. Main PID `1962862`, admin PID `1962858`, observer PID `1962856` all retain start `2026-09-23 20:58:18 UTC` and `NRestarts=0`. Old receiver remains active/enabled, PID `542667`, `NRestarts=0`, with all three old installed hashes unchanged. `approvals`, `revoked`, `claims`, `consumed`, `control-backups` and the new helper are absent; no active deploy artifact unit was found. **No application deploy, activation, restart or symlink change occurred in this attempt.** There is no denial-test result, so the guard is not verified on VPS. The GitHub Production reviewer setting and workflow merge remain pending; merge to main is **NOT SAFE** while the old push receiver remains live.
+
+Required next step: build a truly LF-preserving candidate package from exact commit bytes in a controlled environment, verify each file's SHA-256 and Bash/Node/systemd syntax *before* touching active services, correct this report's preflight package assumptions, and request the owner's direction for a new cutover attempt. Do not reuse the staged CRLF archive or infer approval of another attempt from this stopped one.
+
+VPS-GUARD-BLOCKED
