@@ -39,3 +39,7 @@ An attempted read-only module-import diagnostic was denied by the local safety r
 | Old push path final state | Inactive/disabled; not re-enabled |
 
 The safe next step is a **separately reviewed and authorized** control-plane packaging correction that makes the receiver import path and installed helper filename agree, with the four-file hash contract updated/reverified as appropriate. Do not silently rename an installed file, weaken OIDC/approval logic, or use this approval as authority for a repair or another live test. After correction, a new owner-approved DENY validation must prove TCP readiness, HTTP `401` with `OIDC_MALFORMED`, `AUTHORIZATION_MISSING`, and zero deploy side effects. Deployment remains unavailable and no application release was made.
+
+## Commit and publication state
+
+Only this report and `HANDOFF.md` were committed on the existing `codex/production-deploy-control-20260924` branch as documentation with `[skip ci]`; no application code, VPS file, `main` merge/push or Production workflow was changed. The sanitized report was published to `SignalVerse-AI-Log/master`; the final remote commit and matching blob SHA are recorded in the delivery message. Unrelated untracked workspace files were preserved.
