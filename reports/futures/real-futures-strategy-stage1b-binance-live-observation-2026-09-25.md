@@ -1,5 +1,42 @@
 # Real Futures Stage 1B — Binance Production Observation Precheck
 
+## Update 2026-09-25 — isolated candidate; secure path unavailable
+
+- Task ID: Stage 1B isolated-candidate Production Phase 0
+- Mode: read-only VPS and local Git precheck; no deployment or live observation
+- Application branch: `codex/production-deploy-control-20260924` (documentation only)
+- Application report commit: `da5cf68b52a9a721d87d0477232bd41bd5f79cad`
+- Isolated candidate branch: `codex/binance-stage1b-isolated-20260925`
+- Owner-specified active baseline: `85aedfb944a67c94227ac343e911bc64a581e79e`
+- Exact isolated candidate: `4fd7ebf0b276277a767b48b678e0b25cd9d84bf2`
+- **Latest status: BINANCE-STAGE1B-OBSERVATION-BLOCKED.** The historical mixed-candidate mismatch report below is preserved as prior evidence.
+
+### Objective, actions and confirmed findings
+
+The task requested secure release of only the isolated candidate, then bounded read-only observation of naturally occurring Binance Real decisions. Phase 0 verified the local candidate SHA, its direct ancestry from the active baseline, and its exact `git diff --name-status`: **10 Stage 1B files** (3 application provenance files, 3 focused tests, `HANDOFF.md`, 3 Stage 1B reports). No `.github`, `ops`, Guard, deploy-control, scheduler or unrelated execution file is in the diff; `git diff --quiet ... -- .github ops` returned 0. The isolated branch working tree was clean. This resolves the older candidate-scope mismatch, not the release gate.
+
+Read-only VPS checks at `2026-09-24T18:21:34Z` and `18:22:15Z` showed the deployed marker and app/admin symlinks on `85aedfb944a67c94227ac343e911bc64a581e79e`. Main, admin and observer services were active. The Guard receiver unit was `loaded` but `inactive/disabled`, `MainPID=0`, `NRestarts=0`; no listener was present on port 3002 and no artifact unit was listed. The adjacent helper filename expected by the receiver was absent, whereas the differently named installed helper existed. A verified secure release path is therefore **not available**. The exact fresh authorization phrase was specified as a gate but was **not provided by the owner as an approval message**. No old receiver was enabled, no alternate path was used and no deployment was attempted.
+
+### Observation, reconciliation and impact
+
+| Item | Result |
+|---|---|
+| Deployment result | NOT STARTED |
+| Observation start/end | NOT STARTED / NOT STARTED |
+| Qualifying natural Binance Real decisions | NOT OBSERVED; unknown, not zero |
+| Timeframe/symbol counts | NOT AVAILABLE |
+| SAFE_CLOSED / FORMING_BAR / UNKNOWN | NOT AVAILABLE / NOT AVAILABLE / NOT AVAILABLE |
+| Forming rate excluding UNKNOWN | NOT CALCULABLE |
+| Capture errors and persisted-decision reconciliation | NOT ASSESSED |
+| Synthetic/fabricated observations | NONE |
+| Order/position/leverage/settings impact by this task | No write action; private exchange state not queried |
+
+Only `HANDOFF.md` and the application precheck report were changed and committed as documentation on the development branch, with `[skip ci]`; application `main` was not merged/pushed. No VPS file/service, Production runtime, DB, exchange, Strategy, Spot or Demo was changed by this task. The original untracked workspace files were preserved. `git diff --check` for the two report changes passed. No build or trading test was needed because deployment was blocked before Phase 1. Live forming-bar rate, strategy improvement and profitability remain unknown.
+
+Next step requires a separate approved repair and live verification of the Guard release path, followed by a fresh exact owner authorization and repeated SHA/scope precheck. Do not revive the old receiver or bypass Guard. This report is not release approval.
+
+---
+
 ## Metadata
 
 - Date: 2026-09-25 (Asia/Kuala_Lumpur)
