@@ -1,3 +1,217 @@
+# Futures final release — clean exact-SHA preflight
+
+## Current result / metadata
+
+- Date: 2026-09-25; evidence window 14:12:35Z–14:16:54Z.
+- Task: owner-approved CLEAN ISOLATED CHECKOUT / READ-ONLY RELEASE PREFLIGHT.
+- Final status: **FUTURES-RELEASE-PREFLIGHT-BLOCKED**.
+- The earlier documentation-HEAD mismatch is RESOLVED by a separate exact checkout, not by substituting the documentation commit.
+- No deployment was authorized or attempted in this preflight.
+- A historical report from the previous attempt is preserved verbatim below; this dated section is the current result.
+
+```text
+APPROVED_SHA        = b03adbc5bf26a698f3dca91a4be5bb2c5e15514f
+ACTUAL_CHECKOUT_SHA = b03adbc5bf26a698f3dca91a4be5bb2c5e15514f
+MAIN_SHA            = b3195f788e14e393464e93aa9545cc7614a1caaf
+LOCAL_MAIN_REF      = 85aedfb944a67c94227ac343e911bc64a581e79e
+PRODUCTION_SHA      = b3195f788e14e393464e93aa9545cc7614a1caaf
+CI_STATUS           = BLOCKED: zero Production CI runs for the approved SHA
+RELEASE_STATUS      = BLOCKED: target not on main, no qualifying CI, no target Guard approval
+VPS_STATUS          = BLOCKED for this target; existing app/admin/observer/receiver are active
+BLOCKER             = main/candidate divergence; exact-SHA promotion cannot fast-forward
+NEXT_EXACT_STEP     = owner decision on a newly identified main-based candidate; no automatic substitution
+CODE_CHANGED        = NO
+PRODUCTION_CHANGED  = NO
+VPS_CHANGED         = NO
+ORDERS              = NO
+POSITIONS_CHANGED   = NO
+DATABASE_CHANGED    = NO
+```
+
+The NO statements describe actions by this task. They are not a private-account/DB audit of concurrent autonomous or owner activity.
+
+## Objective / authorized scope
+
+Create an isolated checkout of exactly the owner-approved executable, confirm prior acceptance, read current main/CI/Production/release controls, and report the remaining route. No application/Strategy/Engine/Risk/Supervisor/accounting/Spot/MLM change, main push, release dispatch, Guard admission, migration, service action or trade is authorized here.
+
+## 1. Exact isolated candidate — READY
+
+A new managed detached worktree named futures-release-b03-20260925 was created at the requested commit. No pre-existing branch or checkout was switched/reset/cleaned, and no untracked work was removed. The primary concurrent work and the earlier Futures documentation checkout were not edited.
+
+Observed at 14:12:35Z and again 14:16:07Z/14:16:54Z, before writing this explicitly requested documentation:
+
+```text
+git rev-parse HEAD
+b03adbc5bf26a698f3dca91a4be5bb2c5e15514f
+
+git rev-parse HEAD^{tree}
+2ad5f2484b873d27d5a819808efcf7298b18c2c3
+
+git status --porcelain=v1 --untracked-files=all
+<empty>
+
+git diff --quiet b03adbc5bf26a698f3dca91a4be5bb2c5e15514f HEAD
+exit 0
+git diff --quiet
+exit 0
+git diff --cached --quiet
+exit 0
+```
+
+e9edb886f24fe693243ac9e8776ca87820bf9fd5 is NOT the release identity. Its entire committed difference from b03 consists of HANDOFF.md, the safe testing runbook, the accounting report and the completion report. There is no executable difference. The report/handoff written after preflight are documentation only, left uncommitted, and are not part of the approved Git tree/archive.
+
+## 2. Existing acceptance evidence — READY as prior local evidence only
+
+Inspected the final accounting report at documentation commit e9edb886f24fe693243ac9e8776ca87820bf9fd5 and confirmed the executable tree it describes matches b03.
+
+| Required evidence | Prior recorded result / boundary |
+| --- | --- |
+| Offline Futures allowlist | 1207/1207 PASS in 23 files; not rerun here |
+| Temporary PostgreSQL | 6/6 PASS; no Production schema assertion |
+| Web / admin builds | Both PASS |
+| API bundles | 14/14 PASS |
+| Shared Decision Engine / Real-Demo-Simulator parity | Common computeCanonicalFuturesDecision; 120 whole-decision parity cases in the prior suite |
+| Binance / MEXC native Futures data | Prior native/provenance suites retained |
+| Gate NEW input and existing-position observer | Native market-data provider; 111 observer regression tests retained |
+| Unified fee/funding accounting | Shared economics contract/normalizers; 179 accounting cases retained |
+
+Source spot checks at the exact candidate: api/_shared/futures-decision-engine.ts:338; api/analyze.ts:2; api/copytrade.ts:1–7,7899,11664; api/_shared/gate-futures-observer.ts:1,9,26. These connect the common decision/market-data/observer/accounting modules. This is identity/linkage confirmation, not a new economic audit or live execution test.
+
+Prior Node runtime was local 24.19.0. These results do not replace the missing exact-SHA main-push CI. No tests/builds, strategy retuning or exchange simulations were run in this preflight. Profitability remains **NOT PROVEN**.
+
+## 3. Current main — BLOCKED for exact-SHA promotion
+
+Read-only remote acquisition used git fetch --no-tags origin main; main was verified independently with git ls-remote twice, most recently at 14:16:54Z. Fetch updates local remote-tracking metadata only; no remote ref or local main pointer was written.
+
+```text
+git rev-parse main
+85aedfb944a67c94227ac343e911bc64a581e79e
+
+git rev-parse origin/main
+b3195f788e14e393464e93aa9545cc7614a1caaf
+
+git merge-base origin/main b03adbc5bf26a698f3dca91a4be5bb2c5e15514f
+1cbd0f7572905588d9335ffd426685693ee5df58
+
+git rev-list --left-right --count origin/main...b03adbc5bf26a698f3dca91a4be5bb2c5e15514f
+1  10
+
+git merge-base --is-ancestor b03adbc5bf26a698f3dca91a4be5bb2c5e15514f origin/main
+exit 1
+
+git merge-base --is-ancestor origin/main b03adbc5bf26a698f3dca91a4be5bb2c5e15514f
+exit 1
+```
+
+The one main-only commit is b3195f7, feat(spot): bidirectional Parity Inventory Rebalance (Demo) (#160), touching five files: api/stablecoin-engine.ts, docs/AI_HANDOFF.md, migrations/stablecoin_parity_rebalance.sql, scripts/stablecoin-engine-test.mjs, src/app/App.tsx. The approved candidate has ten commits after the shared base and does not contain that main-only change.
+
+Consequences:
+
+- Main is NOT simply behind b03. Moving its tip to b03 would be non-fast-forward and discard the main-only lineage.
+- Merging the two histories would produce a NEW SHA, not b03.
+- A merge could make b03 reachable, but CI on the merge SHA would still not satisfy the workflow's successful main-push CI requirement for b03 itself.
+- No force-push, merge, rebase, cherry-pick, local-main update or candidate substitution was performed.
+- This is not evidence of an unauthorized concurrent change. The task does not investigate or relabel the owner's separate Spot work.
+
+## 4. Current CI and release workflow
+
+GitHub read-only Actions queries:
+
+- Approved b03: Production CI total_count=0, runs=[].
+- Current main b319: successful main/push CI [36123967741](https://github.com/signal0verse/signalverse-main/actions/runs/36123967741).
+- Manual release workflow ID 366395695 is active.
+- Existing successful manual main release run [36137427817](https://github.com/signal0verse/signalverse-main/actions/runs/36137427817), created 2026-09-25T12:52:01Z, has workflow head b319. Two earlier manual runs failed; none were started by this task.
+- Current Environment has only branch_policy, sole allowed branch main. No required-reviewer rule is present. It must not be described as reviewer-protected.
+
+Both exact-candidate and freshly fetched main have identical reviewed workflow blobs:
+
+```text
+production-release.yml = ac63f98be6e5dd24a239ddbab25b769645ad52d4
+production-ci.yml      = 66c3d1c93366183be6786ab1ee355f54de16ee53
+```
+
+The current route is build/test-only Production CI on main push, then a separate manual production-release.yml workflow with a full 40-character sha input. The release job requires main ref, successful Production CI push on main for that exact target SHA, exact checkout, target ancestry on origin/main, exact Git archive, Production Environment and OIDC delivery to the installed Guard. The Guard separately requires an operator-issued exact-SHA/archive-digest approval.
+
+Thus the workflow DOES accept an exact SHA, but b03 currently fails its prerequisites. No workflow dispatch or GitHub setting change was made.
+
+## 5. Current Production / VPS — independently observed
+
+Read-only SSH sampled the VPS at 14:13:43Z, 14:14:32Z, 14:15:08Z, 14:16:16Z and 14:16:46Z.
+
+- Deployed marker: b3195f788e14e393464e93aa9545cc7614a1caaf.
+- App symlink: /opt/signalverse/releases/b3195f788e14e393464e93aa9545cc7614a1caaf.
+- Admin symlink: /opt/signalverse-admin/releases/b3195f788e14e393464e93aa9545cc7614a1caaf.
+- Independently read main process cwd matches the app release; admin/observer cwd matches the admin release.
+- Marker inode/mtime/size before and after: 608945:1790340817:41.
+- Approved b03 is NOT deployed.
+
+| Service | PID before / after | Start UTC | State / NRestarts |
+| --- | --- | --- | --- |
+| signalverse.service | 2177526 / 2177526 | 2026-09-25 12:53:35 | active/running; 0 / 0 |
+| signalverse-admin.service | 2177522 / 2177522 | 2026-09-25 12:53:35 | active/running; 0 / 0 |
+| signalverse-observer.service | 2177519 / 2177519 | 2026-09-25 12:53:35 | active/running; 0 / 0 |
+| signalverse-deploy-receiver.service | 2166041 / 2166041 | 2026-09-25 10:48:00 | active/running; 0 / 0 |
+
+The receiver is now enabled and listening at 127.0.0.1:3002. Older reports saying inactive/disabled are historical and were NOT reused as current facts. No readiness/401/valid release request was sent.
+
+Installed hashes still match the previously approved package:
+
+| Component | SHA-256 |
+| --- | --- |
+| Receiver | c4d421918c57b6667ee317a3dfe51068a5c6dc7f89ea6c8fac8c1c13f7c15baa |
+| Authorization helper | acfca03b4a4b1d92165efaf937a3217ac609959c3687849f984a00a0795f7c83 |
+| Coordinator | 572651086ee6e622cc858bb1be4db3954115fa09d2ea46e122fc8f9c1b499dec |
+| Receiver unit | 7a3d5bdd90472e989578dfdc0747954b4f6847c47a9be07ab8f54459450188b1 |
+
+The helper reads approvals/<sha>.json; the exact b03 manifest is ABSENT at 14:16:46Z. The approvals directory is root:root 0700. No approval content, exchange secret or private key text was read. Existing SSH authentication was used without exposing its key.
+
+The coordinator source retains the global deploy lock and final consume gate. No coordinator/helper was executed. No active/queued deploy artifact was observed. The sole failed artifact unit is historical: eee238... started 2026-09-08T22:21:28Z and exited 22:24:39Z, not a failure of this preflight. One unrelated recurring collector job appeared in list-jobs and was not touched.
+
+Service activity and listener availability do NOT establish full application/API/Futures health or private-account correctness. Those post-deploy checks were not run, and no trading/sync endpoint was invoked.
+
+## 6. Additional prerequisite — accounting migration
+
+The approved candidate includes migrations/futures_economics_contract.sql: an additive nullable copy_trades.economics JSONB column and version/currency/object constraint, without backfill. The prior report requires it before activating code that writes the column.
+
+Production schema was NOT queried, so current column/constraint presence is UNKNOWN, not assumed absent or complete. No DB connection/write/migration occurred. The reviewed release workflow has no automatic step applying this migration. Any future authorized release needs explicit schema verification and an approved migration procedure if missing.
+
+## 7. Exact remaining release sequence
+
+Statuses are for releasing the exact approved candidate, not general server health.
+
+| Stage | Status | Exact reason / remaining gate |
+| --- | --- | --- |
+| APPROVED SHA | READY | Exact detached checkout and Git tree verified; prior local acceptance linked |
+| MAIN | BLOCKED | 1 main-only vs 10 candidate-only commits; neither ancestor; no permitted fast-forward to b03 |
+| CI | BLOCKED | Zero CI runs for b03; current-main CI cannot be substituted |
+| RELEASE | BLOCKED | Workflow target ancestry/CI requirements unmet; exact target Guard approval absent |
+| VPS | BLOCKED | Existing host/receiver active, but no authorized eligible candidate admission; DB prerequisite unverified |
+| POST-DEPLOY VERIFY | BLOCKED | No deployment performed; cannot verify candidate runtime/endpoints/accounting |
+
+There is no permitted exact-b03 -> current-main -> qualifying-CI route under the current no-history-rewrite/no-control-change rules. The next action is an owner decision, NOT starting/replacing Guard, dispatching CI as a substitute for push CI, or attempting deployment.
+
+Recommended decision: authorize a separately reviewed main-based Futures candidate preserving the current Spot changes and both histories. It necessarily gets a NEW SHA and must receive fresh acceptance/release approval. Until then, b03 remains the approved identity and is not replaced by e9ed, current main or a newly invented SHA.
+
+## 8. Files inspected / changes / validation
+
+Inspected owner attachment; AGENTS.md/CLAUDE.md; latest handoff/current AI handoff; prior accounting and control-plane/Stage1B release reports; exact candidate Git status/tree/diffs; current workflow YAML; migration source and selected Engine/observer/accounting linkage; live marker/symlinks/process metadata; installed Guard hashes and relevant authorization/coordinator source lines; GitHub read-only CI/workflow/Environment APIs.
+
+Local state changes: one isolated detached worktree and local fetch metadata; only the requested report plus a HANDOFF note are written afterward in that NEW worktree. No old worktree or application code was edited. No application commit/push; no history rewrite. Reports-only AI-Log publication is separate from application main.
+
+No application tests/builds rerun; prior evidence was inspected as required. Exact Git identity/diff and read-only runtime checks completed. Documentation is whitespace/secret-scanned and reviewed before publication.
+
+Diagnostic limitations transparently recorded: sandbox inspection could not read the SSH-key path; approved SSH subsequently worked without exposing key content. Two multiline SSH read commands had PowerShell/CRLF trailer errors after their earlier read output; corrected single-line read-only commands supplied the final evidence. An interpolated exit-label was discarded and replaced by an explicit TARGET_APPROVAL=ABSENT check. These were local command-format issues, not receiver/service failures. No repair or remote file creation occurred.
+
+The report is published only to SignalVerse-AI-Log/master after secret review. Remote commit and file/blob identity are verified separately and returned in the final response.
+
+**FINAL STATUS: FUTURES-RELEASE-PREFLIGHT-BLOCKED**
+
+---
+
+# Historical report — previous attempt before clean-checkout authorization
+
+The following snapshot is preserved verbatim. Its earlier mismatch status is historical, not the result of the successful exact checkout above.
+
 # Futures final release — stopped at exact-candidate gate
 
 ## Metadata
