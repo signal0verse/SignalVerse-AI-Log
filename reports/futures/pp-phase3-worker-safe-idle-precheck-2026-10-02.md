@@ -5,7 +5,7 @@
 - Date: 2026-10-02.
 - Task: PHASE 3 — FUTURES PROFIT PROTECTION WORKER SAFE-IDLE SMOKE TEST.
 - Evidence window: 2026-10-02T11:09:17Z–2026-10-02T11:15:32Z, UTC.
-- Application repository: signal0verse/SignalVerse.
+- Application repository: signal0verse/signalverse-main (verified origin).
 - Inspected application release: a0455626c0a54fb443f457e0a595a662974623fa.
 - Independently pinned partner runtime: 84f27c2e40b02b0dbf61c58429cf7c45f4f852da.
 - Report repository: signal0verse/SignalVerse-AI-Log, master.
