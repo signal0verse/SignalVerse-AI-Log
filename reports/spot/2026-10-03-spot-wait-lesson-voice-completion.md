@@ -156,4 +156,3 @@ or production-rollout evidence. No fresh live runtime SHA was observed.
 
 Owner can review the retained local Complete movie and updated education preview.
 Do not deploy or change trading policies based on this media task alone.
-
