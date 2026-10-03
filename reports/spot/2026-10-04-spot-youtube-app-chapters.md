@@ -133,9 +133,10 @@ Final e0cc8be clean-checkout commands:
 - Final client bundle contains both selected IDs and chapter headings.
 
 GitHub Node22 production CI [37141399571](https://github.com/signal0verse/signalverse-main/actions/runs/37141399571)
-started for exact e0cc8be after the main push. Last observed IN_PROGRESS,
-dependency installation passed, admin offline tests running. Overall CI success
-is not claimed; it must be checked before any separate release.
+started for exact e0cc8be after the main push. Its Spot education and closed scope
+step is VERIFIED SUCCESS on Node22. Last overall observation is IN_PROGRESS at
+the opt-in Futures Profit Protection step; the preceding22 steps completed.
+Overall CI success is not claimed; check it before any separate release.
 
 ## Build Result
 
@@ -188,4 +189,3 @@ Preserve the pinned owned trading worker and all existing operational settings.
 Embedding references:
 [YouTube player parameters](https://developers.google.com/youtube/player_parameters),
 [YouTube minimum functionality](https://developers.google.com/youtube/terms/required-minimum-functionality).
-
