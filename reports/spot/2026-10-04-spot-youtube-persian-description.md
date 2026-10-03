@@ -37,7 +37,7 @@ CONFIRMED:Copy request only, no defect. Narration/subtitles are English. Tutoria
 
 ## Implementation
 
-Final proposed Persian YouTube description:
+Initial description draft (retained for history; superseded before final delivery by the owner's discoverability request):
 
 در این ویدئو، کار با بخش اسپات سیگنال‌ورس را قدم‌به‌قدم یاد می‌گیرید؛ از ساخت ستاپ و بررسی دلیل انتظار تحلیل تا خرید پله‌ای، مدیریت سرمایه و ثبت برداشت سود.
 
@@ -56,6 +56,29 @@ Final proposed Persian YouTube description:
 #سیگنال_ورس #اسپات #SignalVerse
 
 ## Tests Executed
+
+Owner follow-up:make the description searchable. Final copy uses relevant topic phrases naturally in the opening and instructional list, plus five relevant Persian/English hashtags. This is editorial keyword wording, not tested ranking or guaranteed discoverability. No new internet facts or platform-ranking claims are made.
+
+Final searchable description:
+
+آموزش اسپات سیگنال‌ورس؛ راهنمای قدم‌به‌قدم کپی‌ترید اسپات، خرید پله‌ای ارز دیجیتال و مدیریت سرمایه.
+
+در این ویدئو، نحوهٔ کار بخش اسپات سیگنال‌ورس را با تصویر محیط اپ می‌بینید؛ از ساخت ستاپ و بررسی دلیل انتظار تحلیل تا سناریوهای خرید، وضعیت سفارش‌ها، محاسبهٔ سود و ثبت برداشت.
+
+در این آموزش یاد می‌گیرید:
+- چگونه ستاپ اسپات بسازید و سرمایهٔ هر ارز را تعیین کنید.
+- دلیل انتظار تحلیل و معنی رنگ کارت‌های وضعیت را بخوانید.
+- سناریوها، پله‌های خرید و سفارش‌های اجراشده یا در انتظار را بررسی کنید.
+- سرمایهٔ آزاد، رزروشده و خریدهای انجام‌شده را از هم تشخیص دهید.
+- سود محقق‌شده، سود شناور، سود مرکب و میانگین زمان تحقق سود را بخوانید.
+- برداشت سود را ثبت کنید و سود باقی‌مانده را ببینید.
+
+ساخت ستاپ به معنی خرید فوری نیست؛ آماده‌شدن سناریو، ثبت سفارش و انجام خرید، مراحل متفاوتی هستند. دکمهٔ ثبت برداشت نیز فقط برای حسابداری است و پولی از صرافی منتقل نمی‌کند.
+
+زبان این نسخهٔ ویدئو انگلیسی است. تصاویر و اعداد، نمونهٔ آموزشی هستند. این آموزش توصیهٔ خریدوفروش یا تضمین سود نیست.
+
+#آموزش_اسپات #خرید_پله_ای #مدیریت_سرمایه #SignalVerse #SpotTrading
+
 
 Manual source-to-copy review:PASS against all133subtitle captions. No promised return, private account information or new feature claim. Git status:existing dirty work retained, reporting clone clean before preparation. Remote report full-byte equality checked after normal push before linking it. No app/financial tests invoked.
 
