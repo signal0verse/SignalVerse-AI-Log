@@ -37,9 +37,13 @@ CONFIRMED:Copy request, not a defect. Existing tutorial covers staged buying, ca
 
 ## Implementation
 
-Selected exact title:
+Initial longer draft (superseded before final delivery when owner requested a short title):
 
 آموزش کامل اسپات سیگنال‌ورس | خرید پله‌ای، مدیریت سرمایه و ثبت برداشت سود
+
+Final short title requested by owner:
+
+آموزش اسپات سیگنال‌ورس
 
 ## Tests Executed
 
@@ -67,4 +71,4 @@ This is an editorial suggestion, not measured search-performance or profitabilit
 
 ## Recommended Next Step
 
-Owner may copy the proposed title into the YouTube title field.
+Owner may copy the final short title into the YouTube title field. The initial longer draft remains recorded above; it is not the final recommendation.
