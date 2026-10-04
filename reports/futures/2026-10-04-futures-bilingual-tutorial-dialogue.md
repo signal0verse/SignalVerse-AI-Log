@@ -157,4 +157,3 @@ Report and narration reviewed for credentials, private financial rows, account i
 ## Recommended Next Step
 
 Give the owner both complete narration texts now. Wait for their recordings, then build and synchronize the two-language educational videos from those actual voices. Keep app source release separate; do not activate trading features or deploy merely to publish training text.
-
