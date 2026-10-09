@@ -1,0 +1,1497 @@
+{
+  "task": "ENGINE_REVIEW_SCOPE_CORRECTION",
+  "base": "b18d35403bdc71274bb18bfbf135bec50d15a6c9",
+  "sourceCommit": null,
+  "sourceState": "UNCOMMITTED_DEVELOPMENT_DIFF",
+  "node": "v22.23.3",
+  "tests": {
+    "engine-intelligence-p0": {
+      "exit": 0,
+      "tests": 16,
+      "pass": 16,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "35b3646cfa21f9f43d254c43adab31d4d4036e073329352b8ad683b34fa68a94",
+      "failures": null
+    },
+    "engine-review-boundaries": {
+      "exit": 0,
+      "tests": 36,
+      "pass": 36,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "15d6487f60dd5e124d6a7cca90624b6b1ef98486590baa10c483ea2688fb296c",
+      "failures": null
+    },
+    "engine-intelligence-funding": {
+      "exit": 0,
+      "tests": 13,
+      "pass": 13,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "b6ad2ad61dc6984519f09e52c9aece37e927680220dfee2fee90b59747dbf3b9",
+      "failures": null
+    },
+    "engine-intelligence-scope": {
+      "exit": 0,
+      "tests": 11,
+      "pass": 11,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "88feeac229e2c0331749ff9be8262724caa2bbfdde7bc7d760adfb64af5a00f3",
+      "failures": null
+    },
+    "futures-shared-engine": {
+      "exit": 0,
+      "tests": 55,
+      "pass": 55,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "3c26e7585787010689b06dbe9a7d2c3b659e49c4f8b364f1b4bd9c041326286a",
+      "failures": null
+    },
+    "historical-point-in-time": {
+      "exit": 0,
+      "tests": 31,
+      "pass": 31,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "cc6edb3cc39b15f51bc81170b2485057d1ed0e413bcfe5364de4f37e8159279b",
+      "failures": null
+    },
+    "historical-simulation-timing": {
+      "exit": 0,
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "skipped": 0,
+      "logicalTimingChecks": 16,
+      "stdoutSha256": "0e5626146a88e4d468546b3d70dc1777f92e11c0f8a736832cca948f5e7ebde5",
+      "failures": null
+    },
+    "futures-simulation-accounting": {
+      "exit": 0,
+      "tests": 21,
+      "pass": 21,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "8ab8be29de0b068f777ec646cdc0ff83bae35cb4d308d18a69d366c6581793d1",
+      "failures": null
+    },
+    "futures-simulation-capital": {
+      "exit": 0,
+      "tests": 27,
+      "pass": 27,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "1af3942e0a1b868104af9a853a7b9adfc7c2fc53115964fbf346e7721a9600a5",
+      "failures": null
+    },
+    "futures-simulation-chronology": {
+      "exit": 0,
+      "tests": 41,
+      "pass": 41,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "ff9d7530e0b53d08fd87e30a71ac5ae3e2664e057d9f496f68298786a9012e14",
+      "failures": null
+    },
+    "futures-simulation-execution": {
+      "exit": 0,
+      "tests": 46,
+      "pass": 46,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "3ba41682d310f733dda78722a826bddf0d5d4a9b495e7355f67cd460bb156154",
+      "failures": null
+    },
+    "futures-market-discovery": {
+      "exit": 0,
+      "tests": 36,
+      "pass": 36,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "0cf87f01f1ea026c7bbb97326f6e122f579316c520e40bacdc1b19cabca2ad86",
+      "failures": null
+    },
+    "futures-entry-freshness": {
+      "exit": 0,
+      "tests": 98,
+      "pass": 98,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "d60db2f9d6936ec8ddabd6556984c644bf2a454b92395a450ecd143032ba78a4",
+      "failures": null
+    },
+    "futures-entry-admission-integration": {
+      "exit": 0,
+      "tests": 65,
+      "pass": 65,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "27519ca50447fd67c7e8f9c82160d41939d68b51521d72718057f6455f23486f",
+      "failures": null
+    },
+    "owned-futures-entry": {
+      "exit": 0,
+      "tests": 86,
+      "pass": 86,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "8ca070f0b6057b3088ed79f4fc747b8df453ea5a464fd1d9e6a78e182d9a6e81",
+      "failures": null
+    },
+    "futures-closed-native-candles": {
+      "exit": 0,
+      "tests": 11,
+      "pass": 11,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "3b320100bed220df520e26eb496b58979c58677b26260767b830c7fe29d9a37b",
+      "failures": null
+    },
+    "futures-discovery-data": {
+      "exit": 0,
+      "tests": 18,
+      "pass": 18,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "5bf0d81fd162d0cb34dd505599f4ac65fcc859d5bca07fbbbff58561919f0af5",
+      "failures": null
+    },
+    "futures-discovery-live": {
+      "exit": 0,
+      "tests": 46,
+      "pass": 46,
+      "fail": 0,
+      "skipped": 0,
+      "stdoutSha256": "549708642d13573f6ae9d2758e701620fd96eb51b1b68bc1805668c4cba61e13",
+      "failures": null
+    },
+    "engine-review-spot-core": {
+      "command": "node --test scripts/engine-review-spot-core-test.mjs",
+      "exit": 0,
+      "tests": 6,
+      "pass": 6,
+      "fail": 0,
+      "skipped": 0,
+      "outputSha256": "1e4bbad47316ee9d4b80bdb745c019a35057db80c77f6197c470183f66971de0"
+    }
+  },
+  "totals": {
+    "tests": 664,
+    "pass": 664,
+    "fail": 0,
+    "skipped": 0
+  },
+  "types": {
+    "baseline": 102,
+    "candidate": 102,
+    "introduced": 0
+  },
+  "builds": {
+    "web": {
+      "exit": 0,
+      "output": "vite v6.3.5 building for production...\ntransforming...\n✓ 2062 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                     0.58 kB │ gzip:   0.36 kB\ndist/assets/index-DnLeOhfn.css    162.58 kB │ gzip:  23.20 kB\ndist/assets/index-CWfiyCho.js   1,841.52 kB │ gzip: 527.48 kB\n✓ built in 19.33s\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n"
+    },
+    "admin": {
+      "exit": 0,
+      "output": "vite v6.3.5 building for production...\ntransforming...\n✓ 1713 modules transformed.\nrendering chunks...\ncomputing gzip size...\n../dist-admin/index.html                   0.56 kB │ gzip:  0.36 kB\n../dist-admin/assets/index-Rc4p9gyQ.css   17.50 kB │ gzip:  4.23 kB\n../dist-admin/assets/index-ZYEA9_q8.js   298.65 kB │ gzip: 97.29 kB\n✓ built in 11.33s\n"
+    },
+    "api": {
+      "pass": true,
+      "entries": 14,
+      "outputs": 14
+    }
+  },
+  "releaseGate": {
+    "command": "node --test scripts/owned-futures-entry-scope-test.mjs",
+    "exit": 1,
+    "tests": 1,
+    "pass": 0,
+    "fail": 1,
+    "skipped": 0,
+    "outputSha256": "5b7a7517d5c550ef804349164a95e3979eeaa2f82f2aad53de4daf0deb2a004a",
+    "excerpt": "TAP version 13\n# node:internal/modules/run_main:123\n#     triggerUncaughtException(\n#     ^\n# AssertionError [ERR_ASSERTION]: Exact owned entry inventory\n# + actual - expected\n#   [\n#     '.github/workflows/production-ci.yml',\n#     'HANDOFF.md',\n#     'TRADING_STRATEGY.md',\n# +   'api/_shared/futures-candle-provenance.ts',\n# +   'api/_shared/futures-discovery-data.ts',\n# +   'api/_shared/futures-indicators.ts',\n#     'api/analyze.ts',\n#     'api/copytrade.ts',\n#     'docs/fixes/owned-futures-entry-2026-10-09.md',\n#     'docs/partner-copytrade.md',\n#     'docs/testing/stability-test-runbook.md',\n# +   'reports/general/engine-intelligence-upgrade-2026-10-10.md',\n# +   'research/engine-intelligence/evidence.json',\n# +   'research/engine-intelligence/evidence.mjs',\n# +   'research/engine-intelligence/futures-baseline-results.json',\n# +   'research/engine-intelligence/futures-candidate-results.json',\n# +   'research/engine-intelligence/futures-review-baseline-results.json',\n# +   'research/engine-intelligence/futures-review-candidate-results.json',\n# +   'research/engine-intelligence/protocol.json',\n# +   'research/engine-intelligence/release-contract-diagnostic.json',\n# +   'research/engine-intelligence/release-contract-diagnostic.mjs',\n# +   'research/engine-intelligence/replay.mjs',\n# +   'research/engine-intelligence/review-evidence.mjs',\n# +   'research/engine-intelligence/review-replay.mjs',\n# +   'research/engine-intelligence/review-validation.json',\n# +   'research/engine-intelligence/review-validation.mjs',\n# +   'research/engine-intelligence/scanner-ordering-diagnostic.json',\n# +   'research/engine-intelligence/scanner-ordering-diagnostic.mjs',\n# +   'research/engine-intelligence/scope-correction-protocol.json',\n# +   'research/engine-intelligence/spot-baseline-results.json',\n# +   'research/engine-intelligence/spot-candidate-results.json',\n# +   'research/engine-intelligence/spot-review-baseline-results.json',\n# +   'research/engine-intelligence/spot-review-candidate-results.json',\n# +   'research/engine-intelligence/validate.mjs',\n# +   'research/engine-intelligence/validation.json',\n# +   'scripts/engine-intelligence-fast-trader-test.mjs',\n# +   'scripts/engine-intelligence-funding-test.mjs',\n# +   'scripts/engine-intelligence-p0-test.mjs',\n# +   'scripts/engine-intelligence-scope-test.mjs',\n# +   'scripts/engine-review-boundaries-test.mjs',\n# +   'scripts/engine-review-spot-core-test.mjs',\n#     'scripts/lib/native-funding-parity.mjs',\n#     'scripts/lib/owned-futures-entry-delta.json',\n#     'scripts/lib/owned-futures-entry-parity.mjs',\n#     'scripts/owned-futures-entry-scope-test.mjs',\n#     'scripts/owned-futures-entry-test.mjs'\n#     at validateOwnedEntry (file:///C:/Projects/SignalVerse-Main/tmp/engine-intelligence-20261009/scripts/lib/owned-futures-entry-parity.mjs:48:9)\n#     at verifyOwnedEntry (file:///C:/Projects/SignalVerse-Main/tmp/engine-intelligence-20261009/scripts/lib/owned-futures-entry-parity.mjs:58:42)\n#     at file:",
+    "changed": false,
+    "releaseReady": false
+  },
+  "scannerOrdering": {
+    "classification": "DEFECT_REPRODUCED",
+    "expectedSafeFinalRun": "new",
+    "actualFinalRun": "old",
+    "log": [
+      {
+        "run": "new",
+        "at": "2026-10-09T17:18:46.799Z"
+      },
+      {
+        "run": "old",
+        "at": "2026-10-09T17:14:46.799Z"
+      }
+    ],
+    "sourceFunction": "maintainFuturesDiscoveryRows",
+    "realDatabase": false,
+    "exchangeCalls": 0,
+    "limitation": "An in-memory query port demonstrates the unfenced write order; not proof of occurrence in Production. No durable fix applied."
+  },
+  "replays": {
+    "spot": {
+      "count": 8,
+      "sourceChecks": 14,
+      "causalChecks": 15,
+      "pairedFields": 0,
+      "priorCandidateFields": 24,
+      "rows": [
+        {
+          "variant": "baseline",
+          "costs": "1x",
+          "trades": 0,
+          "closedNet": 0,
+          "markedNet": 2.3411018267756845,
+          "feesAndModelImpact": 0.4052479806772075,
+          "funding": null,
+          "maximumIndividualRunDrawdownPct": 0.6332900892738855,
+          "folds": [
+            {
+              "fold": "Q3",
+              "runs": [
+                {
+                  "symbol": "portfolio",
+                  "trades": 0,
+                  "closedNet": 0,
+                  "terminalNet": 0,
+                  "winRatePct": null,
+                  "profitFactor": null,
+                  "averageTrade": null,
+                  "maxDrawdownPct": 0,
+                  "openAtEnd": 0
+                }
+              ]
+            },
+            {
+              "fold": "Q4",
+              "runs": [
+                {
+                  "symbol": "portfolio",
+                  "trades": 0,
+                  "closedNet": 0,
+                  "terminalNet": 2.3411018267756845,
+                  "winRatePct": null,
+                  "profitFactor": null,
+                  "averageTrade": null,
+                  "maxDrawdownPct": 0.6332900892738855,
+                  "openAtEnd": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant": "baseline",
+          "costs": "2x",
+          "trades": 0,
+          "closedNet": 0,
+          "markedNet": 1.9358538460983254,
+          "feesAndModelImpact": 0.810495961354415,
+          "funding": null,
+          "maximumIndividualRunDrawdownPct": 0.6333583612526411,
+          "folds": [
+            {
+              "fold": "Q3",
+              "runs": [
+                {
+                  "symbol": "portfolio",
+                  "trades": 0,
+                  "closedNet": 0,
+                  "terminalNet": 0,
+                  "winRatePct": null,
+                  "profitFactor": null,
+                  "averageTrade": null,
+                  "maxDrawdownPct": 0,
+                  "openAtEnd": 0
+                }
+              ]
+            },
+            {
+              "fold": "Q4",
+              "runs": [
+                {
+                  "symbol": "portfolio",
+                  "trades": 0,
+                  "closedNet": 0,
+                  "terminalNet": 1.9358538460983254,
+                  "winRatePct": null,
+                  "profitFactor": null,
+                  "averageTrade": null,
+                  "maxDrawdownPct": 0.6333583612526411,
+                  "openAtEnd": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant": "candidate",
+          "costs": "1x",
+          "trades": 5,
+          "closedNet": 14.125032288957442,
+          "markedNet": 1.0086112396070348,
+          "feesAndModelImpact": 1.1596992111781348,
+          "funding": null,
+          "maximumIndividualRunDrawdownPct": 1.3133404938228448,
+          "folds": [
+            {
+              "fold": "Q3",
+              "runs": [
+                {
+                  "symbol": "portfolio",
+                  "trades": 0,
+                  "closedNet": 0,
+                  "terminalNet": 0,
+                  "winRatePct": null,
+                  "profitFactor": null,
+                  "averageTrade": null,
+                  "maxDrawdownPct": 0,
+                  "openAtEnd": 0
+                }
+              ]
+            },
+            {
+              "fold": "Q4",
+              "runs": [
+                {
+                  "symbol": "portfolio",
+                  "trades": 5,
+                  "closedNet": 14.125032288957442,
+                  "terminalNet": 1.0086112396070348,
+                  "winRatePct": 100,
+                  "profitFactor": null,
+                  "averageTrade": 2.8250064577914884,
+                  "maxDrawdownPct": 1.3133404938228448,
+                  "openAtEnd": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant": "candidate",
+          "costs": "2x",
+          "trades": 5,
+          "closedNet": 13.771658201305522,
+          "markedNet": -0.1510879715710871,
+          "feesAndModelImpact": 2.3193984223562696,
+          "funding": null,
+          "maximumIndividualRunDrawdownPct": 1.321003967273128,
+          "folds": [
+            {
+              "fold": "Q3",
+              "runs": [
+                {
+                  "symbol": "portfolio",
+                  "trades": 0,
+                  "closedNet": 0,
+                  "terminalNet": 0,
+                  "winRatePct": null,
+                  "profitFactor": null,
+                  "averageTrade": null,
+                  "maxDrawdownPct": 0,
+                  "openAtEnd": 0
+                }
+              ]
+            },
+            {
+              "fold": "Q4",
+              "runs": [
+                {
+                  "symbol": "portfolio",
+                  "trades": 5,
+                  "closedNet": 13.771658201305522,
+                  "terminalNet": -0.1510879715710871,
+                  "winRatePct": 100,
+                  "profitFactor": null,
+                  "averageTrade": 2.754331640261104,
+                  "maxDrawdownPct": 1.321003967273128,
+                  "openAtEnd": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "sample": "BTC ETH SOL; 2025 Q3 and Q4; reused previously inspected data, not untouched holdout",
+      "actualReceiptTimesAvailable": false,
+      "fundingCoverageComplete": false
+    },
+    "futures": {
+      "count": 24,
+      "sourceChecks": 14,
+      "causalChecks": 258,
+      "pairedFields": 72,
+      "priorCandidateFields": 72,
+      "rows": [
+        {
+          "variant": "baseline",
+          "costs": "1x",
+          "trades": 100,
+          "closedNet": 612.6886562499975,
+          "markedNet": 651.3433005323895,
+          "feesAndModelImpact": 49.96636525716182,
+          "funding": -1.9937857903446279,
+          "maximumIndividualRunDrawdownPct": 0.9906057973795602,
+          "folds": [
+            {
+              "fold": "Q3",
+              "runs": [
+                {
+                  "symbol": "BTC",
+                  "trades": 15,
+                  "closedNet": -64.0767685553111,
+                  "terminalNet": -67.33338878229915,
+                  "winRatePct": 13.333333333333334,
+                  "profitFactor": 0.4088099916810017,
+                  "averageTrade": -4.2717845703540736,
+                  "maxDrawdownPct": 0.9906057973795602,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 6,
+                      "net": -15.687906278385258
+                    },
+                    "SHORT": {
+                      "count": 9,
+                      "net": -48.38886227692585
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 5,
+                      "net": -22.91785476040932
+                    },
+                    "4h": {
+                      "count": 6,
+                      "net": -23.15331507006541
+                    },
+                    "1d": {
+                      "count": 4,
+                      "net": -18.00559872483637
+                    }
+                  }
+                },
+                {
+                  "symbol": "ETH",
+                  "trades": 28,
+                  "closedNet": 75.72658724081053,
+                  "terminalNet": 75.37656723680811,
+                  "winRatePct": 42.857142857142854,
+                  "profitFactor": 1.4525627897235867,
+                  "averageTrade": 2.7045209728860904,
+                  "maxDrawdownPct": 0.5635004685983221,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 15,
+                      "net": 84.62998018396199
+                    },
+                    "SHORT": {
+                      "count": 13,
+                      "net": -8.903392943151463
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 4,
+                      "net": -17.645608989017074
+                    },
+                    "1h": {
+                      "count": 10,
+                      "net": 36.41242951390137
+                    },
+                    "4h": {
+                      "count": 12,
+                      "net": 34.06306489588491
+                    },
+                    "1d": {
+                      "count": 2,
+                      "net": 22.896701820041322
+                    }
+                  }
+                },
+                {
+                  "symbol": "SOL",
+                  "trades": 24,
+                  "closedNet": 184.89537733226877,
+                  "terminalNet": 184.89537733225552,
+                  "winRatePct": 41.666666666666664,
+                  "profitFactor": 2.1349951018615543,
+                  "averageTrade": 7.703974055511199,
+                  "maxDrawdownPct": 0.6997380956584351,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 16,
+                      "net": 173.0641566878586
+                    },
+                    "SHORT": {
+                      "count": 8,
+                      "net": 11.831220644410143
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 3,
+                      "net": -0.192736837197935
+                    },
+                    "1h": {
+                      "count": 11,
+                      "net": -39.482138619323585
+                    },
+                    "4h": {
+                      "count": 5,
+                      "net": 94.6090753317397
+                    },
+                    "1d": {
+                      "count": 5,
+                      "net": 129.96117745705052
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "fold": "Q4",
+              "runs": [
+                {
+                  "symbol": "BTC",
+                  "trades": 17,
+                  "closedNet": 179.1143464250591,
+                  "terminalNet": 179.11434642505628,
+                  "winRatePct": 58.8235294117647,
+                  "profitFactor": 4.082032038615752,
+                  "averageTrade": 10.536138025003476,
+                  "maxDrawdownPct": 0.3561871730595614,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 7,
+                      "net": 39.352647620328085
+                    },
+                    "SHORT": {
+                      "count": 10,
+                      "net": 139.761698804731
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 1,
+                      "net": -4.863327296610588
+                    },
+                    "1h": {
+                      "count": 3,
+                      "net": 29.088824521033004
+                    },
+                    "4h": {
+                      "count": 10,
+                      "net": 30.964724735337647
+                    },
+                    "1d": {
+                      "count": 3,
+                      "net": 123.92412446529906
+                    }
+                  }
+                },
+                {
+                  "symbol": "ETH",
+                  "trades": 6,
+                  "closedNet": 58.11456011456872,
+                  "terminalNet": 100.72586463198786,
+                  "winRatePct": 33.333333333333336,
+                  "profitFactor": 2.7749803354227636,
+                  "averageTrade": 9.685760019094786,
+                  "maxDrawdownPct": 0.8430468718718293,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 1,
+                      "net": 10.046891537042963
+                    },
+                    "SHORT": {
+                      "count": 5,
+                      "net": 48.06766857752576
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 1,
+                      "net": -3.8136638754650614
+                    },
+                    "1h": {
+                      "count": 3,
+                      "net": -3.341805051088599
+                    },
+                    "4h": {
+                      "count": 1,
+                      "net": -15.53859950919488
+                    },
+                    "1d": {
+                      "count": 1,
+                      "net": 80.80862855031727
+                    }
+                  }
+                },
+                {
+                  "symbol": "SOL",
+                  "trades": 10,
+                  "closedNet": 178.91455369260157,
+                  "terminalNet": 178.56453368858092,
+                  "winRatePct": 50,
+                  "profitFactor": 3.050369403811116,
+                  "averageTrade": 17.891455369260157,
+                  "maxDrawdownPct": 0.5764528374270209,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 4,
+                      "net": -25.286259457723403
+                    },
+                    "SHORT": {
+                      "count": 6,
+                      "net": 204.200813150325
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 3,
+                      "net": 9.236522159677143
+                    },
+                    "4h": {
+                      "count": 4,
+                      "net": -16.272702354605137
+                    },
+                    "1d": {
+                      "count": 3,
+                      "net": 185.95073388752957
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant": "baseline",
+          "costs": "2x",
+          "trades": 70,
+          "closedNet": 557.5906815266314,
+          "markedNet": 595.5531798795637,
+          "feesAndModelImpact": 69.89165478438942,
+          "funding": -2.315077813958596,
+          "maximumIndividualRunDrawdownPct": 0.8434236707244185,
+          "folds": [
+            {
+              "fold": "Q3",
+              "runs": [
+                {
+                  "symbol": "BTC",
+                  "trades": 10,
+                  "closedNet": -47.98058991040622,
+                  "terminalNet": -51.58785171807358,
+                  "winRatePct": 20,
+                  "profitFactor": 0.4731897888979199,
+                  "averageTrade": -4.798058991040622,
+                  "maxDrawdownPct": 0.8274866383122819,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 4,
+                      "net": -9.971599906687773
+                    },
+                    "SHORT": {
+                      "count": 6,
+                      "net": -38.008990003718445
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "4h": {
+                      "count": 6,
+                      "net": -27.2619077580285
+                    },
+                    "1d": {
+                      "count": 4,
+                      "net": -20.718682152377717
+                    }
+                  }
+                },
+                {
+                  "symbol": "ETH",
+                  "trades": 20,
+                  "closedNet": 60.98355762717245,
+                  "terminalNet": 60.983557627178016,
+                  "winRatePct": 45,
+                  "profitFactor": 1.4008578380433054,
+                  "averageTrade": 3.0491778813586228,
+                  "maxDrawdownPct": 0.5881183883398989,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 10,
+                      "net": 75.59805230914759
+                    },
+                    "SHORT": {
+                      "count": 10,
+                      "net": -14.614494681975142
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 6,
+                      "net": 13.281972805162404
+                    },
+                    "4h": {
+                      "count": 12,
+                      "net": 26.176032871137192
+                    },
+                    "1d": {
+                      "count": 2,
+                      "net": 21.525551950872845
+                    }
+                  }
+                },
+                {
+                  "symbol": "SOL",
+                  "trades": 16,
+                  "closedNet": 188.18235954016188,
+                  "terminalNet": 188.18235954015836,
+                  "winRatePct": 50,
+                  "profitFactor": 2.3749382318049883,
+                  "averageTrade": 11.761397471260118,
+                  "maxDrawdownPct": 0.7239849807890613,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 10,
+                      "net": 181.0095266241994
+                    },
+                    "SHORT": {
+                      "count": 6,
+                      "net": 7.172832915962438
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 6,
+                      "net": -29.984321488607492
+                    },
+                    "4h": {
+                      "count": 5,
+                      "net": 91.48417350831147
+                    },
+                    "1d": {
+                      "count": 5,
+                      "net": 126.68250752045789
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "fold": "Q4",
+              "runs": [
+                {
+                  "symbol": "BTC",
+                  "trades": 13,
+                  "closedNet": 146.55759833710812,
+                  "terminalNet": 146.55759833712,
+                  "winRatePct": 53.84615384615385,
+                  "profitFactor": 3.5502508954487415,
+                  "averageTrade": 11.273661410546778,
+                  "maxDrawdownPct": 0.44932091455440876,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 4,
+                      "net": 22.677456972507134
+                    },
+                    "SHORT": {
+                      "count": 9,
+                      "net": 123.88014136460102
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "4h": {
+                      "count": 10,
+                      "net": 24.38400908415388
+                    },
+                    "1d": {
+                      "count": 3,
+                      "net": 122.17358925295424
+                    }
+                  }
+                },
+                {
+                  "symbol": "ETH",
+                  "trades": 3,
+                  "closedNet": 55.95024739711361,
+                  "terminalNet": 98.22008758972152,
+                  "winRatePct": 33.333333333333336,
+                  "profitFactor": 3.301098099709821,
+                  "averageTrade": 18.650082465704536,
+                  "maxDrawdownPct": 0.8434236707244185,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "SHORT": {
+                      "count": 3,
+                      "net": 55.95024739711361
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 1,
+                      "net": -8.062186741239858
+                    },
+                    "4h": {
+                      "count": 1,
+                      "net": -16.252399153281196
+                    },
+                    "1d": {
+                      "count": 1,
+                      "net": 80.26483329163466
+                    }
+                  }
+                },
+                {
+                  "symbol": "SOL",
+                  "trades": 8,
+                  "closedNet": 153.89750853548153,
+                  "terminalNet": 153.19742850345938,
+                  "winRatePct": 37.5,
+                  "profitFactor": 2.6957079758457243,
+                  "averageTrade": 19.237188566935192,
+                  "maxDrawdownPct": 0.5773650259996048,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 2,
+                      "net": -46.5386745342127
+                    },
+                    "SHORT": {
+                      "count": 6,
+                      "net": 200.43618306969424
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 1,
+                      "net": -11.36547772040378
+                    },
+                    "4h": {
+                      "count": 4,
+                      "net": -18.971150984379257
+                    },
+                    "1d": {
+                      "count": 3,
+                      "net": 184.23413724026457
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant": "candidate",
+          "costs": "1x",
+          "trades": 100,
+          "closedNet": 612.6886562499975,
+          "markedNet": 651.3433005323895,
+          "feesAndModelImpact": 49.96636525716182,
+          "funding": -1.9937857903446279,
+          "maximumIndividualRunDrawdownPct": 0.9906057973795602,
+          "folds": [
+            {
+              "fold": "Q3",
+              "runs": [
+                {
+                  "symbol": "BTC",
+                  "trades": 15,
+                  "closedNet": -64.0767685553111,
+                  "terminalNet": -67.33338878229915,
+                  "winRatePct": 13.333333333333334,
+                  "profitFactor": 0.4088099916810017,
+                  "averageTrade": -4.2717845703540736,
+                  "maxDrawdownPct": 0.9906057973795602,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 6,
+                      "net": -15.687906278385258
+                    },
+                    "SHORT": {
+                      "count": 9,
+                      "net": -48.38886227692585
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 5,
+                      "net": -22.91785476040932
+                    },
+                    "4h": {
+                      "count": 6,
+                      "net": -23.15331507006541
+                    },
+                    "1d": {
+                      "count": 4,
+                      "net": -18.00559872483637
+                    }
+                  }
+                },
+                {
+                  "symbol": "ETH",
+                  "trades": 28,
+                  "closedNet": 75.72658724081053,
+                  "terminalNet": 75.37656723680811,
+                  "winRatePct": 42.857142857142854,
+                  "profitFactor": 1.4525627897235867,
+                  "averageTrade": 2.7045209728860904,
+                  "maxDrawdownPct": 0.5635004685983221,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 15,
+                      "net": 84.62998018396199
+                    },
+                    "SHORT": {
+                      "count": 13,
+                      "net": -8.903392943151463
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 4,
+                      "net": -17.645608989017074
+                    },
+                    "1h": {
+                      "count": 10,
+                      "net": 36.41242951390137
+                    },
+                    "4h": {
+                      "count": 12,
+                      "net": 34.06306489588491
+                    },
+                    "1d": {
+                      "count": 2,
+                      "net": 22.896701820041322
+                    }
+                  }
+                },
+                {
+                  "symbol": "SOL",
+                  "trades": 24,
+                  "closedNet": 184.89537733226877,
+                  "terminalNet": 184.89537733225552,
+                  "winRatePct": 41.666666666666664,
+                  "profitFactor": 2.1349951018615543,
+                  "averageTrade": 7.703974055511199,
+                  "maxDrawdownPct": 0.6997380956584351,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 16,
+                      "net": 173.0641566878586
+                    },
+                    "SHORT": {
+                      "count": 8,
+                      "net": 11.831220644410143
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 3,
+                      "net": -0.192736837197935
+                    },
+                    "1h": {
+                      "count": 11,
+                      "net": -39.482138619323585
+                    },
+                    "4h": {
+                      "count": 5,
+                      "net": 94.6090753317397
+                    },
+                    "1d": {
+                      "count": 5,
+                      "net": 129.96117745705052
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "fold": "Q4",
+              "runs": [
+                {
+                  "symbol": "BTC",
+                  "trades": 17,
+                  "closedNet": 179.1143464250591,
+                  "terminalNet": 179.11434642505628,
+                  "winRatePct": 58.8235294117647,
+                  "profitFactor": 4.082032038615752,
+                  "averageTrade": 10.536138025003476,
+                  "maxDrawdownPct": 0.3561871730595614,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 7,
+                      "net": 39.352647620328085
+                    },
+                    "SHORT": {
+                      "count": 10,
+                      "net": 139.761698804731
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 1,
+                      "net": -4.863327296610588
+                    },
+                    "1h": {
+                      "count": 3,
+                      "net": 29.088824521033004
+                    },
+                    "4h": {
+                      "count": 10,
+                      "net": 30.964724735337647
+                    },
+                    "1d": {
+                      "count": 3,
+                      "net": 123.92412446529906
+                    }
+                  }
+                },
+                {
+                  "symbol": "ETH",
+                  "trades": 6,
+                  "closedNet": 58.11456011456872,
+                  "terminalNet": 100.72586463198786,
+                  "winRatePct": 33.333333333333336,
+                  "profitFactor": 2.7749803354227636,
+                  "averageTrade": 9.685760019094786,
+                  "maxDrawdownPct": 0.8430468718718293,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 1,
+                      "net": 10.046891537042963
+                    },
+                    "SHORT": {
+                      "count": 5,
+                      "net": 48.06766857752576
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 1,
+                      "net": -3.8136638754650614
+                    },
+                    "1h": {
+                      "count": 3,
+                      "net": -3.341805051088599
+                    },
+                    "4h": {
+                      "count": 1,
+                      "net": -15.53859950919488
+                    },
+                    "1d": {
+                      "count": 1,
+                      "net": 80.80862855031727
+                    }
+                  }
+                },
+                {
+                  "symbol": "SOL",
+                  "trades": 10,
+                  "closedNet": 178.91455369260157,
+                  "terminalNet": 178.56453368858092,
+                  "winRatePct": 50,
+                  "profitFactor": 3.050369403811116,
+                  "averageTrade": 17.891455369260157,
+                  "maxDrawdownPct": 0.5764528374270209,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 4,
+                      "net": -25.286259457723403
+                    },
+                    "SHORT": {
+                      "count": 6,
+                      "net": 204.200813150325
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 3,
+                      "net": 9.236522159677143
+                    },
+                    "4h": {
+                      "count": 4,
+                      "net": -16.272702354605137
+                    },
+                    "1d": {
+                      "count": 3,
+                      "net": 185.95073388752957
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "variant": "candidate",
+          "costs": "2x",
+          "trades": 70,
+          "closedNet": 557.5906815266314,
+          "markedNet": 595.5531798795637,
+          "feesAndModelImpact": 69.89165478438942,
+          "funding": -2.315077813958596,
+          "maximumIndividualRunDrawdownPct": 0.8434236707244185,
+          "folds": [
+            {
+              "fold": "Q3",
+              "runs": [
+                {
+                  "symbol": "BTC",
+                  "trades": 10,
+                  "closedNet": -47.98058991040622,
+                  "terminalNet": -51.58785171807358,
+                  "winRatePct": 20,
+                  "profitFactor": 0.4731897888979199,
+                  "averageTrade": -4.798058991040622,
+                  "maxDrawdownPct": 0.8274866383122819,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 4,
+                      "net": -9.971599906687773
+                    },
+                    "SHORT": {
+                      "count": 6,
+                      "net": -38.008990003718445
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "4h": {
+                      "count": 6,
+                      "net": -27.2619077580285
+                    },
+                    "1d": {
+                      "count": 4,
+                      "net": -20.718682152377717
+                    }
+                  }
+                },
+                {
+                  "symbol": "ETH",
+                  "trades": 20,
+                  "closedNet": 60.98355762717245,
+                  "terminalNet": 60.983557627178016,
+                  "winRatePct": 45,
+                  "profitFactor": 1.4008578380433054,
+                  "averageTrade": 3.0491778813586228,
+                  "maxDrawdownPct": 0.5881183883398989,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 10,
+                      "net": 75.59805230914759
+                    },
+                    "SHORT": {
+                      "count": 10,
+                      "net": -14.614494681975142
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 6,
+                      "net": 13.281972805162404
+                    },
+                    "4h": {
+                      "count": 12,
+                      "net": 26.176032871137192
+                    },
+                    "1d": {
+                      "count": 2,
+                      "net": 21.525551950872845
+                    }
+                  }
+                },
+                {
+                  "symbol": "SOL",
+                  "trades": 16,
+                  "closedNet": 188.18235954016188,
+                  "terminalNet": 188.18235954015836,
+                  "winRatePct": 50,
+                  "profitFactor": 2.3749382318049883,
+                  "averageTrade": 11.761397471260118,
+                  "maxDrawdownPct": 0.7239849807890613,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 10,
+                      "net": 181.0095266241994
+                    },
+                    "SHORT": {
+                      "count": 6,
+                      "net": 7.172832915962438
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 6,
+                      "net": -29.984321488607492
+                    },
+                    "4h": {
+                      "count": 5,
+                      "net": 91.48417350831147
+                    },
+                    "1d": {
+                      "count": 5,
+                      "net": 126.68250752045789
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "fold": "Q4",
+              "runs": [
+                {
+                  "symbol": "BTC",
+                  "trades": 13,
+                  "closedNet": 146.55759833710812,
+                  "terminalNet": 146.55759833712,
+                  "winRatePct": 53.84615384615385,
+                  "profitFactor": 3.5502508954487415,
+                  "averageTrade": 11.273661410546778,
+                  "maxDrawdownPct": 0.44932091455440876,
+                  "openAtEnd": 0,
+                  "bySide": {
+                    "LONG": {
+                      "count": 4,
+                      "net": 22.677456972507134
+                    },
+                    "SHORT": {
+                      "count": 9,
+                      "net": 123.88014136460102
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "4h": {
+                      "count": 10,
+                      "net": 24.38400908415388
+                    },
+                    "1d": {
+                      "count": 3,
+                      "net": 122.17358925295424
+                    }
+                  }
+                },
+                {
+                  "symbol": "ETH",
+                  "trades": 3,
+                  "closedNet": 55.95024739711361,
+                  "terminalNet": 98.22008758972152,
+                  "winRatePct": 33.333333333333336,
+                  "profitFactor": 3.301098099709821,
+                  "averageTrade": 18.650082465704536,
+                  "maxDrawdownPct": 0.8434236707244185,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "SHORT": {
+                      "count": 3,
+                      "net": 55.95024739711361
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 1,
+                      "net": -8.062186741239858
+                    },
+                    "4h": {
+                      "count": 1,
+                      "net": -16.252399153281196
+                    },
+                    "1d": {
+                      "count": 1,
+                      "net": 80.26483329163466
+                    }
+                  }
+                },
+                {
+                  "symbol": "SOL",
+                  "trades": 8,
+                  "closedNet": 153.89750853548153,
+                  "terminalNet": 153.19742850345938,
+                  "winRatePct": 37.5,
+                  "profitFactor": 2.6957079758457243,
+                  "averageTrade": 19.237188566935192,
+                  "maxDrawdownPct": 0.5773650259996048,
+                  "openAtEnd": 1,
+                  "bySide": {
+                    "LONG": {
+                      "count": 2,
+                      "net": -46.5386745342127
+                    },
+                    "SHORT": {
+                      "count": 6,
+                      "net": 200.43618306969424
+                    }
+                  },
+                  "byTimeframe": {
+                    "15m": {
+                      "count": 0,
+                      "net": 0
+                    },
+                    "1h": {
+                      "count": 1,
+                      "net": -11.36547772040378
+                    },
+                    "4h": {
+                      "count": 4,
+                      "net": -18.971150984379257
+                    },
+                    "1d": {
+                      "count": 3,
+                      "net": 184.23413724026457
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "sample": "BTC ETH SOL; 2025 Q3 and Q4; reused previously inspected data, not untouched holdout",
+      "actualReceiptTimesAvailable": false,
+      "fundingCoverageComplete": false
+    }
+  },
+  "sourceHashes": {
+    "api/copytrade.ts": "a06acafa1f58ff422680b128307b5cb24e18630876f13a3af1b82e655dfb301d",
+    "api/_shared/futures-indicators.ts": "709a0689235f557a5688c604596fd31e50344fec3b6b7b36bb5ce2e29cf5d39a",
+    "scripts/engine-review-boundaries-test.mjs": "a9a5a3cb0f9629bf4b02906cf4b179a0d624f84f375924780a5b4aaa3ce1f541",
+    "scripts/engine-review-spot-core-test.mjs": "b9b3c362cc6b3021a96cd7a172471d43e4d2d1d42acae948887f38f069b0397d",
+    "scripts/engine-intelligence-scope-test.mjs": "fecae7338c34ebb07cb8a64515518f00bc4803441d461477ee4a522f1308081e",
+    "research/engine-intelligence/scope-correction-protocol.json": "2db14a7d7ca0a25c253fe241a1e4094813e22d2fdcd477aa0f0e215fa2b94ee4",
+    "research/engine-intelligence/review-validation.mjs": "ae5da64c1d5f7d85a3dd9c8a460f4bbbee6b2fb4747d2342429e53912c8d54ef",
+    "research/engine-intelligence/review-replay.mjs": "b6af061a940bb2a00aad5fbf1b7626872b80473bbf7ab8b2cd5a436c42386367",
+    "research/engine-intelligence/scanner-ordering-diagnostic.mjs": "1beabe98dbfee6303c99ec52039ca1c8bc64bee8c6514c8bf38a14f3504c87de",
+    "research/engine-intelligence/review-evidence.mjs": "3b4531f3650d6d9e4d12b5f2d8200214962043d5c17113ee55e06e1c99d8af72",
+    "research/engine-intelligence/review-validation.json": "2ca2cfc2873c9ae67373898cb8e9c1131c56ae4bc46beb6ef856ea3550b9cb5e",
+    "research/engine-intelligence/spot-review-baseline-results.json": "72b384aaa53498142e7862aedfa0e1a376f5bb20bcf88e56564f6cdceb72195c",
+    "research/engine-intelligence/spot-review-candidate-results.json": "74b6f312cbdf455bc3dc6193acbfd18eea1116e73929b35a60f63ea51cd9cce1",
+    "research/engine-intelligence/futures-review-baseline-results.json": "7b133d7b3fa92999d822e3c0c6402783def39471433436fd2d6478b113c461fe",
+    "research/engine-intelligence/futures-review-candidate-results.json": "539a7980debe2827a34d96344fc28b5e146388d9260d306fde22276534ffcbe4"
+  },
+  "priorExcludedSourcesUnchanged": {
+    "api/analyze.ts": "22aab67b36c95acc76f10d17e1118584e51f24860ada73f45892f06e6b361569",
+    "api/_shared/futures-candle-provenance.ts": "31b25d6b74d210f601f9299c41a744f42d18610280781733097a71a7c45eab2f",
+    "api/_shared/futures-discovery-data.ts": "e9365cedb087d006835942b38b5693b03982ef464200fdd949d04183f931cdcc"
+  },
+  "actions": {
+    "production": 0,
+    "database": 0,
+    "exchange": 0,
+    "orders": 0,
+    "positions": 0,
+    "deployments": 0,
+    "applicationPushes": 0
+  },
+  "improvementProven": false,
+  "diffCheck": "PASS"
+}
