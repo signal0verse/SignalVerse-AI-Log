@@ -1,0 +1,19 @@
+# Partnership logo: white candles and V-to-arrow revision
+
+Date: 2026-10-12 (Asia/Kuala_Lumpur). Owner requested three white candles at the lower right, a green growth arrow, and an arrow that visually emerges from beneath the right arm of the V as its continuous transformation.
+
+## Delivery and checks
+
+Built-in image editing revised the selected artistic partnership mark. Three candlestick bodies and wicks now read as white/pearl silver. The connecting ribbon and arrow are green, with the earlier broad silver underside removed; the junction is folded under the rising right V arm. The silver C, green V, two green wireless arcs and recognizable co-brand composition remain present.
+
+Sibling deliverable: output/imagegen/crossverse-signalverse-partnership-white-candles-8k.png. PNG, 8192 x 4096 pixels, true alpha transparency, 13556120 bytes. SHA-256: 93fb2497184a0c6b4978996eee469289a8b560085c216fdf93324fde4804905b. The selected built-in edit was 1774 x 887; detached alpha speckles were removed while retaining the seven main components, followed by Lanczos3 enlargement. This is an enlarged raster export, not native 8K generation or pixel-identical vector editing.
+
+Metadata and transparent background/corner checks passed. The result was visually inspected over a dark surface: all three candles are white, the arrow remains green and the underside joint is visible. The previous deliverable and original input files were preserved.
+
+The updated embedded-image interactive preview passed isolated headless browser checks at 736px and 320px: pointer tilt, button/keyboard light pass, reset, reduced-motion handling, no horizontal overflow and no script errors. It makes no external requests. The PNG is static; interaction belongs to the preview. No application code, strategy, account, database, order or deployment was changed. Only this sanitized report is published and its remote bytes verified; brand images remain local.
+
+## Final prompt and mode
+
+Mode: built-in image tool; local Node/Sharp export and metadata validation.
+
+> Use case: precise-object-edit. Edit ONLY the supplied artistic partnership logo. Keep its composition, silver C, green V, exactly two wireless arcs, three candlesticks, polished sculptural finish, 2:1 landscape proportions and true transparent background. Apply these exact user changes: (1) Make ALL THREE ascending candlestick bodies AND their wicks at the lower right WHITE / bright pearl silver, with restrained soft silver-grey dimensional shading matching the C. They must clearly read as white, not teal or green; remove teal fills from the candles. (2) Make the curved rising arrow and its connecting ribbon entirely emerald/turquoise GREEN, including the underside; remove the current long white/silver stripe beneath the arrow, retaining only a fine specular highlight. (3) Redesign the joint so the arrow is visibly a CONTINUOUS TRANSFORMATION OF THE RIGHT RISING ARM OF THE V. The arrow's tail curls smoothly OUT FROM UNDER THE RIGHT ARM OF THE V, emerging from behind its lower/underside fold; it should look like the SAME GREEN RIBBON extending out from that V arm, curving right and then up into a clear arrowhead. Use an intentional over-under fold at the junction so the V's right arm sits in front of its emerging arrow tail. No separate added ribbon attached to the middle, no disconnected arrow, no floating stem, no arrow emerging from the C. Preserve the recognizable V silhouette, while the fold-to-arrow connection feels structurally unified and elegant. Do not change the C geometry, existing brand layout or number of signal arcs. Keep green signal arcs. No words, no extra symbols, no new backdrop, no cropped elements, no neon speckles. Crisp smooth alpha edges and clear negative spaces. True alpha PNG at the highest available resolution for an 8192x4096 final export.
