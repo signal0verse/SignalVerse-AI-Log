@@ -151,3 +151,38 @@ invoked; reboot completion, post-restart WSL/Docker readiness and deployment
 remain unverified. The private continuation record retains the exact CI run,
 source/runtime pins, backup-proof location and remaining controlled release gates.
 No production activation or new source commit belongs to this reboot step.
+
+## Post-restart continuation - 2026-10-25 07:03 +08:00
+
+The owner resumed this chat after Windows booted. The normal restart command
+returned exit0; Windows reports its new boot at06:46:31 local. WSL2 now runs the
+Docker distribution with kernel6.18.54.1. Local Linux Docker29.6.2 is ready.
+
+Docker initially failed before its engine started because stale, inaccessible
+AF_UNIX IPC objects remained from August. Its normal stop command timed out.
+Only processes whose executable paths matched the installed Docker directory
+were stopped; the two exact transient socket parent directories were renamed
+to task-specific preservation siblings. No directory was deleted, no factory
+reset/prune/unregister performed, and no Docker data/settings or production
+configuration changed. The preserved IPC directories and private repair receipt
+remain available. The engine subsequently started successfully.
+
+A pinned Ubuntu24.04 disposable image contains native PostgreSQL17.11,
+GitHub CLI2.103.2 and the repository-supported Actions runner2.338.0. The latter
+two archives matched official SHA256 values. Before JIT registration, the new
+container verified zero host mounts, no socket/inbound port/host networking,
+private/metadata egress denial, working public HTTPS and the inability to regain
+NET_ADMIN after dropping its bounding capability. Limits are2CPU/3GiB RAM with
+low scheduling weight; no host or production credentials are in the image.
+
+Exact-main CI40137578402 attempt1 failed during checkout because the unprivileged
+runner inherited root's HOME. No application tests ran in that attempt. The
+runner diagnostics were preserved and its exact container removed; GitHub
+automatically removed its one-job registration. The image now sets the correct
+runner HOME. The same main-push CI was retried with a fresh JIT runner; at this
+update it has started, and full test completion remains pending. This is an
+infrastructure correction only: application/main SHA remains3f6a6573 and the
+source worktree is clean. The main bot has not been activated with the new UI.
+
+Reference for the matching Docker IPC startup failure class:
+https://github.com/docker/desktop-feedback/issues/531
