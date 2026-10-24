@@ -209,3 +209,23 @@ References:
 - https://github.com/signal0verse/signalverse-main/actions/runs/40137578402
 - https://learn.microsoft.com/en-us/windows/wsl/basic-commands
 - https://docs.docker.com/desktop/setup/install/windows-install/
+
+## 2026-10-25 06:42 local — Windows prerequisite installed, restart required
+
+This update supersedes the installation-decision-pending state above. The owner
+explicitly approved preparing the Linux prerequisite on this Windows machine.
+The standard elevated Microsoft command `wsl.exe --install --no-distribution`
+completed with exit0. WSL3.0.3.0/kernel6.18.54.1-1 are installed;
+VirtualMachinePlatform reports enabled, hardware virtualization/SLAT are True,
+and component servicing reports a required restart. No automatic/forced restart,
+unrelated distribution, firmware edit or production runtime change was performed.
+Official exact-main CI40137578402 remains queued on source3f6a6573 until the
+post-restart Docker/isolated-runner environment is verified and started.
+
+The installation and continuation receipts are retained privately. Full sanitized
+installation report, with remote bytes verified:
+https://github.com/signal0verse/SignalVerse-AI-Log/blob/b6b90a8254868b0d3e7d22c3bc26c9a4de56ac5f/reports/infrastructure/2026-10-25-windows-wsl-ci-prerequisite-setup.md
+
+The main bot has not yet adopted the new UI. Successful full main CI, immutable
+artifact verification, fresh server/control/backup evidence, existing independent
+Guard authorization and official release/actual UI verification remain required.
