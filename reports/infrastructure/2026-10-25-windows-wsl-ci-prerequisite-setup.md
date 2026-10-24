@@ -136,3 +136,18 @@ References:
 - https://docs.docker.com/desktop/setup/install/windows-install/
 - https://github.com/signal0verse/signalverse-main/actions/runs/40137578402
 - https://github.com/signal0verse/SignalVerse-AI-Log/blob/master/reports/general/2026-10-25-telegram-workspace-production-release.md
+
+## Owner-approved restart handoff - 2026-10-25 06:45 +08:00
+
+The owner explicitly confirmed that open work is saved and requested an immediate
+Windows restart. Installation exit0, enabled VirtualMachinePlatform, hardware
+virtualization and saved continuation state were rechecked; the source worktree
+remains clean at3f6a657316e694e834e4c9c76966edc4d96c744b.
+
+A normal Windows restart command, shutdown.exe /r /t 0, is prepared without the
+force-close flag. This handoff is published before invoking it because reboot
+terminates the local executor. At publication the restart has not yet been
+invoked; reboot completion, post-restart WSL/Docker readiness and deployment
+remain unverified. The private continuation record retains the exact CI run,
+source/runtime pins, backup-proof location and remaining controlled release gates.
+No production activation or new source commit belongs to this reboot step.
