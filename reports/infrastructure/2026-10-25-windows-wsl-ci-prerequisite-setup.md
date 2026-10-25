@@ -186,3 +186,18 @@ source worktree is clean. The main bot has not been activated with the new UI.
 
 Reference for the matching Docker IPC startup failure class:
 https://github.com/docker/desktop-feedback/issues/531
+
+## Completion - 2026-10-25 08:29 +08:00
+
+The prerequisite environment is accepted. The corrected fresh runner passed
+exact-main-push CI40137578402 attempt2 (79 successful steps), then fresh isolated
+runners completed official artifact preparation40145984655 and production
+release40146218322. Independent full-tree/digest and final process/public-asset
+checks passed. The official main bot now runs source3f6a6573; independent Paper
+stays pinned to2da63dc5. All task containers, one-job registrations and the empty
+task bridge network are removed; diagnostics remain private. The local WSL/Docker
+installation and reusable test image remain for future authorized use.
+
+This supersedes the earlier pending-CI/deployment state. No factory reset,
+production-control change, schema change, test order or paid CI budget change.
+Complete verified release evidence: [final production report](https://github.com/signal0verse/SignalVerse-AI-Log/blob/master/reports/general/2026-10-25-telegram-workspace-production-release.md).
