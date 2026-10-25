@@ -1,231 +1,220 @@
-# Approved Telegram UI release — source published, runtime not deployed
+# Approved Telegram workspace UI — deployed and verified
 
 ## Metadata
 
-- Date: 2026-10-25, Asia/Kuala_Lumpur
-- Task ID: telegram-workspace-production-release-20261025
-- Module: Telegram workspace UI and release preservation evidence
-- Mode: owner-approved release preparation; activation blocked on CI execution
-- Repository: signal0verse/signalverse-main
-- Branch: codex/telegram-ui-preview-20261025, also normally fast-forwarded to main
-- Starting design commit: 9753985bb2af8c84afc0ba5af4a07e7e80b48017
-- Ending source commit: 3f6a657316e694e834e4c9c76966edc4d96c744b
-- Preserved predecessor/active runtime: 2da63dc5441928c5c325067869445e8732bde48c
-- Result: NOT DEPLOYED; required exact-main CI remains queued with zero runners
+- Date: 2026-10-25 08:29 +08:00, Asia/Kuala_Lumpur.
+- Task ID: telegram-workspace-production-release-20261025.
+- Repository: signal0verse/signalverse-main; branch codex/telegram-ui-preview-20261025.
+- Owner-approved destination: official @SignalVerse_AI_bot.
+- Reviewed design commit: 9753985bb2af8c84afc0ba5af4a07e7e80b48017.
+- Published and active main/admin/owned source: `3f6a657316e694e834e4c9c76966edc4d96c744b`.
+- Preserved predecessor and independent Paper source: `2da63dc5441928c5c325067869445e8732bde48c`.
+- Result: DEPLOYED. Official release succeeded at2026-10-25 00:23 UTC
+  (08:23 local). Independent runtime/public proof passed at00:23:29 UTC.
+- This verified completion supersedes the earlier CI/prerequisite-pending report.
 
 ## Objective
 
-The owner approved the displayed cleaner Telegram design, supplied SignalVerse
-logo and currency icons, and requested deployment to the official main bot.
-The original authorization to deploy is valid; a later question asks permission
-only for installing missing Linux test prerequisites on this Windows machine.
-No such installation or reboot has been performed.
+Deploy the already-reviewed cleaner Telegram layout with currency icons and the
+owner-supplied SignalVerse logo. The owner explicitly approved production
+deployment, preparing the Linux test prerequisite on this Windows machine and,
+after saving work, an immediate restart. The owner then resumed after boot.
 
 ## Scope
 
-Preserve the reviewed UI, existing financial behavior, private local work and
-production controls. Complete source preservation, official CI, immutable artifact,
-private rollback backup/cold restore, independent exact-digest Guard approval and
-official release before claiming activation. No strategy, risk, credit, SQL,
-account, order, worker or production configuration change is authorized here.
+The release changes Telegram presentation and floating-help knowledge only.
+Financial handlers, strategy, risk, credit, account modes, confirmation/delete
+gates, durable execution holds, workers and production configuration are retained.
+There is no migration, profile/account edit, forced scan, test order, bot-token/
+webhook change, new worker activation or paid GitHub budget change.
+Existing services continue their normal authorized work; this report does not
+claim that no background activity occurred during the operation.
 
 ## Actions Taken
 
-1. Verified a clean candidate worktree and current remote main. Confirmed the
-   active main/admin/owned release is exactly the candidate's predecessor2da63dc5.
-   The independent Paper pointer also remains on that source.
-2. Verified live Telegram identity with read-only getMe/getWebhookInfo:
-   @SignalVerse_AI_bot and the expected signal.easybitpay.com webhook host.
-   Token/webhook values were not changed or disclosed.
-3. Recorded22 installed release/runtime/unit/configuration fingerprints and
-   active service/pointer evidence. No installed Guard/coordinator/receiver,
-   environment, service unit or timer was edited.
-4. The initial legacy closed scope correctly rejected the new UI inventory.
-   Added a narrow, byte-pinned, reversible presentation successor. Every changed
-   predecessor file reconstructs exactly; unknown/missing/extra bytes, financial
-   APIs, private files, migrations and workflow changes are rejected. Historical
-   assertions remain, with an exact predecessor projection only after that proof.
-   Direct new-UI tests run against actual candidate source. The existing CI UI
-   entry imports the additional tests; no workflow gate was removed or skipped.
-5. Updated HANDOFF, AI handoff, safe runbook and release evidence document.
-   Removed the obsolete candidate-only/live-unchanged sentence from help knowledge
-   in preparation for the approved release. No trading handler was changed.
-6. Passed19 focused UI/preservation tests, scoped strict TypeScript, Web/Admin
-   production builds and syntax-only analyze API bundling. The lengthy Windows
-   historical parity process was interrupted; full official Linux CI remains
-   mandatory and has not been reported as passed.
-7. Published feature branch and main normally, without force. Preserved rollback
-   ref codex/rollback-telegram-ui-20261025 at2da63dc5. Verified source remote SHA3f6a6573.
-8. Started required main-push Production CI40137578402. It remains queued before
-   any test step because SV_ISOLATED_RUNNER=enabled and the repository currently
-   has zero registered runners. No payment/budget variable, hosted-routing gate,
-   workflow or repository visibility was changed to bypass that restriction.
-9. Took a new full native PostgreSQL snapshot and consistent read-only Paper and
-   receipt SQLite backups, then completed isolated cold restore/integrity proofs.
-   All backup contents remain private on the server.
-10. Investigated the installed local Docker environment. Its engine was initially
-    unavailable; WSL reports not installed. The existing Docker Desktop CLI
-    startup returned Starting, but a bounded20-second engine query still timed
-    out. Native Docker app launch approval also timed out. The production VPS has
-    no Docker executable. No WSL/software/Windows feature was installed and no
-    reboot, security change or production runner installation was performed.
-11. Asked the owner for permission to install/prepare the missing Linux test
-    prerequisite on this Windows host, noting possible restart requirements.
-    That specific installation decision remains pending at this report snapshot.
+1. Preserved the approved compact branded header, five main navigation targets,
+   Home hierarchy, context-only currency picker, labeled market/strategy selectors,
+   prominent account modes, expandable tutorials and labeled per-currency Manage
+   controls. Existing action callbacks and disabled/confirmation rules remain.
+2. Kept the exact supplied transparent logo and bundled local currency registry/
+   fallback. The separate preview remains explicitly synthetic and does not load
+   real accounts, auth, analysis or order APIs. The partner host retains its UI.
+3. Added the closed, byte-pinned reversible preservation successor required by
+   historical CI. Its20 pinned inventory entries include the binary logo;
+   ten predecessor files reconstruct exactly. All original assertions remain,
+   unknown/financial/workflow changes reject, and actual new UI has direct tests.
+   No release workflow, installed Guard or coordinator was weakened or modified.
+4. Normally promoted the reviewed source to main and preserved the rollback branch
+   `codex/rollback-telegram-ui-20261025`. No force push or discard of unrelated work.
+5. Completed the private full backup/cold-restore proof described below. Rechecked
+   its digests, live bot identity, runtime pointers and22 control fingerprints
+   immediately before issuing approval. No duplicate backup was created.
+6. After the owner-approved Windows restart, verified WSL2 and repaired only two
+   stale Docker IPC parent directories by preserving them under task-specific
+   sibling names. No Docker data reset, prune, unregister or settings change.
+   Corrected the disposable runner's HOME after the initial checkout failure.
+7. Passed the exact-main-push CI, prepared exactly one official retained artifact,
+   independently verified every archive Git blob/path/type/mode and digest,
+   issued the existing one-hour exact-SHA/digest one-use approval out of band,
+   then used the unchanged official OIDC release workflow.
+8. Verified actual running-process working directories, active release pointers,
+   service readiness, consumed authorization, rollback pointers and public assets.
+   The independent Paper runtime and its process remained on the predecessor.
+9. Opened the existing official bot Mini App without sending a message. Verified
+   Home/Trade navigation, logo loaded at40px from the original1254px image, and an
+   existing currency icon loaded at32×32. Visually inspected the deployed layout
+   and returned it to Home. No mode, setup, account, balance or order control was
+   changed. No private Telegram/account screenshots or URL parameters are published.
+10. Removed the exact task containers and empty task bridge network; GitHub lists
+    zero registered runners. Preserved private diagnostics. The prepared local
+    WSL/Docker environment and reusable checksum-pinned image remain available.
 
 ## Files Inspected
 
-- AGENTS.md, CLAUDE.md, latest HANDOFF and docs/AI_HANDOFF.md
-- Existing UI preview document and current colleague/release handoff
-- Production CI, artifact preparation and exact-SHA release workflows
-- Installed root release coordinator and authorization contract, read-only
-- Safe test runbook and free-isolated-actions-2026-10-13.md
-- Current and historical source preservation helpers and tests
-- Existing backup helpers, server service/pointer metadata and designated env path
-- Local Docker CLI help/status, contexts and non-secret operational metadata
-- Official Microsoft WSL and Docker Windows prerequisite documentation
+AGENTS.md, CLAUDE.md, newest HANDOFF/AI_HANDOFF entries, colleague handoff, safe
+test runbook, Telegram UI/release documents, isolated-runner instructions, exact
+production workflows and artifact verifier, approved manifest and original UI
+call sites. The installed Guard/coordinator/receiver were read and compared to
+the recorded fingerprints. Configured service credentials were used silently
+for identity verification and were not transferred to the test containers.
+Private UI observations are excluded from published reports. The obsolete helper which alters the
+coordinator was not executed. A previously rejected process-memory credential
+probe was not executed or retried; live identity used only the service's
+designated configuration file and read-only Telegram methods.
 
 ## Files Changed
 
-- HANDOFF.md
-- docs/AI_HANDOFF.md
-- docs/testing/stability-test-runbook.md
-- docs/testing/telegram-workspace-production-release-2026-10-25.md
-- api/analyze.ts, help text only
-- scripts/lib/spot-setup-reliability-parity.mjs
-- scripts/lib/telegram-workspace-release-parity.mjs
-- scripts/lib/telegram-workspace-release-delta.json
-- scripts/telegram-workspace-release-scope-test.mjs
-- scripts/telegram-workspace-ui-test.mjs
-- scripts/spot-setup-views-test.mjs
-- scripts/terminal-view-parity-test.mjs
-
-Private task-specific preflight/backup/restore helpers and receipts are outside the
-source commit. Original primary checkout private/untracked work was preserved.
+The approved source includes `src/app/App.tsx`, the new
+`src/app/components/TelegramWorkspace.tsx`, scoped styles, exact brand PNG,
+standalone preview entry, browser zoom metadata and floating-help description.
+The preservation helpers/tests, bootstrap manifest, existing CI-test imports and
+handoff/release documents record the bounded change. The exact admitted inventory
+is in `scripts/lib/telegram-workspace-release-delta.json` at the published SHA.
+All198 checked pre-existing App function bodies and non-render application logic
+are retained. No application source changed during this post-restart continuation.
+Operational scripts, diagnostics and receipts remain private and untracked.
 
 ## Root Cause / Findings
 
-CONFIRMED: The UI candidate is based on the actual active source, so no unrelated
-unreleased financial changes need promotion. All existing application non-render
-logic and198 other function bodies remain unchanged by the reviewed UI.
+The previous UI mixed unrelated analysis controls into trading screens and stacked
+unlabeled controls and tiny icon actions. The reviewed layout supplies hierarchy,
+labels and a single main navigation while retaining the inner financial behavior.
 
-CONFIRMED: Official CI has no registered isolated runner. Earlier successful jobs
-used disposable Linux runners; none is currently online. Installed local Docker
-does not provide a working Linux engine and WSL is absent. These are execution
-environment blockers, not a failing financial test or a successful deployment.
-
-CONFIRMED: First cold restore completed and all139 table counts matched, but a
-strict catalog text comparison found six CHECK expressions with normalized AND
-parentheses. No difference was waived by a loose regex: each original expression
-was parsed again on the isolated restored PostgreSQL server inside a rolled-back
-constraint transaction, and its canonical form matched exactly. All other catalog,
-owner, ACL, index, function and trigger values matched. A second complete count
-comparison passed. Production DDL/DML remained zero.
+Release was initially waiting for a Linux runner. The owner-approved Microsoft
+WSL installation and reboot supplied it. Docker then failed on inaccessible stale
+AF_UNIX IPC objects, which were preserved and recreated without a factory reset.
+The first JIT attempt failed before tests because HOME still pointed to root;
+the corrected fresh runner passed the complete unchanged workflow on attempt2.
 
 ## Backup / Restore Evidence
 
-- Full native PostgreSQL17 custom dump:897507927 bytes.
-- SHA256:19e98769de5da55c4d6d6c1e21a9704a1c496f33c81cc4c9a9c9b891259fd3c8.
-- Exported repeatable-read snapshot; all139 archived table-data entries restored
-  and compared against counts from that exact source snapshot.
-- Isolated disk-backed restore: private network, production directories and
-  production sockets inaccessible, CPUQuota100%, MemoryMax1GiB.
-- Source catalog digest:ce2ff8f4668d5fb0fae44c859c10d1651fe164c50ee8d28be5fa03a775601c19.
-- Snapshot count digest:d6d237e8dc0f3ebee1695cb6003cbe3d2fb89f448c8ea2f077a986085018e151.
-- Six CHECK parser round-trips verified; no policy expression changed.
-- Paper snapshot1654505472 bytes and receipt snapshot569344 bytes: cold SQLite
-  integrity_check=ok; compressed round-trip bytes verified.
-- Temporary cluster stopped and only its verified task-owned data/socket removed.
--22 control fingerprints unchanged; no production database/schema/account write.
-- Final proof completed2026-10-24T22:36:30.710208Z (2026-10-25 06:36 local).
-- Private server proof:
-  /var/lib/signalverse-deploy/operations/telegram-workspace-20261025/backup-proof.json.
+All raw backups and restoration data stayed on the VPS. The completed proof
+finished at2026-10-24 22:36:30 UTC. Its existing artifacts were rehashed at
+2026-10-25 00:18:19 UTC before approval; age6109seconds at that check.
+
+- Consistent native PostgreSQL dump:897507927bytes;
+  SHA256 `19e98769de5da55c4d6d6c1e21a9704a1c496f33c81cc4c9a9c9b891259fd3c8`.
+- Disk-backed full cold restore:139 relations/table-data sets and exact exported
+  snapshot counts; owners, ACL, indexes, functions, triggers and schema preserved.
+  Six CHECK pretty-print differences matched PostgreSQL parser round trips in
+  rolled-back disposable DDL. No production DDL/DML was used for the proof.
+- Catalog SHA256 `ce2ff8f4668d5fb0fae44c859c10d1651fe164c50ee8d28be5fa03a775601c19`.
+- Count SHA256 `d6d237e8dc0f3ebee1695cb6003cbe3d2fb89f448c8ea2f077a986085018e151`.
+- Disposable restore:private network, production paths/sockets inaccessible,
+  one CPU/1GiB bound; temporary cluster stopped and removed after verification.
+- Online consistent Paper SQLite snapshot:1654505472bytes;
+  SHA256 `a974b35cf8f6f65c772e054b4b35d5e98a4c13a9f1d5e53e760b2148860b2a1d`.
+- Receipts SQLite snapshot:569344bytes;
+  SHA256 `2716520089ba8ec8ed22bb19e464ac0a125a50f1312b6cd6b7d3971c36077883`.
+- Both SQLite integrity checks and compressed cold round trips passed.
+- All22 installed control/configuration fingerprints remained unchanged before
+  approval and after activation. Existing rollback release directories and all
+  three predecessor pointers were verified. Persistent databases were not restored
+  or migrated by deployment.
 
 ## Tests Executed
 
-- Focused UI, closed UI successor and predecessor scope: PASS19/19.
-- Existing non-render App logic preserved;198 other function bodies exact: PASS.
-- Strict changed component/preview TypeScript: PASS.
-- Web/Admin build at final source: PASS. Existing large frontend bundle warning
-  remains; no full legacy zero-diagnostic claim.
-- analyze.ts syntax-only esbuild targetNode22: PASS, no API execution.
-- Git diff/staged checks: PASS.
-- Full historical Windows parity process: INTERRUPTED, not passed.
-- Required exact-main official CI40137578402: QUEUED, zero steps executed.
-- Native/SQLite backup and full isolated cold restore: PASS as described above.
-- Runtime/source/bot identity read-only checks: PASS for the prior active release.
+- Focused UI/closed-scope preservation:19/19 PASS.
+- Strict changed UI/preview TypeScript, Web/Admin build and API syntax bundle:PASS.
+- The interrupted earlier Windows historical suite is not counted as a pass.
+- Full official exact-main-push [CI40137578402](https://github.com/signal0verse/signalverse-main/actions/runs/40137578402),
+  attempt2:SUCCESS,79 completed successful steps, including all original required
+  preservation, SQL, financial-gate, UI, type and build commands. Attempt1's
+  checkout-only infrastructure failure is retained in history.
+- Actual Linux Node:v22.23.4. Native legacy SQL fixtures used PostgreSQL17.11;
+  unchanged workflow apt steps selected PostgreSQL18.6 for the other SQL checks.
+  Production PostgreSQL was not upgraded. Docker29.6.2/WSL3.0.3 ran the host.
+- Each fresh one-job JIT container:2CPU/3GiB, low scheduling weight, no host mounts,
+  Docker socket, inbound ports, devices or host networking. Private/metadata egress
+  denied; public HTTPS verified; NET_ADMIN dropped before the unprivileged runner.
+  Official runner2.338.0 and CLI2.103.2 downloads matched pinned official checksums.
+- [Official artifact preparation40145984655](https://github.com/signal0verse/signalverse-main/actions/runs/40145984655):SUCCESS.
+  Artifact ID12580966411, attempt1. Inner archive:7982754bytes;
+  all2478 Git blobs and62 directories exactly match source/types/modes.
+- Inner archive/Guard SHA256:
+  `a086e5b8ee8eb34651a30bd8c08344cae073a17f6871464bb88ffa1dd2bba24e`.
+- Immutable transport ZIP SHA256:
+  `3f23f38851dc9b953029510a5f9bfcd3cec535cbe0e3648df8238cb59a894396`. This is not the Guard digest.
+  No archive was repackaged; independent verification executed no archived code.
+- Existing one-use authorization `a23679b3-ac21-4b68-a348-9d1a2e76c686` was issued out of band,
+  checked by the installed Guard and consumed for that exact source/digest.
+- [Official Production Release40146218322](https://github.com/signal0verse/signalverse-main/actions/runs/40146218322):SUCCESS.
+- Independent post-release proof:PASS. Main/admin/observer/owned process CWDs use
+  the target release; all six checked services active. Paper process/source stayed
+  on its predecessor. Both public shared manifests carry the target source and
+  the unchanged contract, with prediction disabled.
+- Public HTML equals active `dist/index.html`, with Cache-Control:no-cache.
+  Its JS/CSS, exact supplied logo, BTC/ETH/CAKE icons and generic fallback match
+  active file bytes. Logo SHA256:
+  `8441ef17de810cfc6fa611a15ca5610b9c2cf0c3dbc11911f944edd2619b8589`.
+- Authenticated read-only Telegram Home/Trade inspection:brand loaded, new main
+  navigation visible, existing currency icon loaded, no command/account mutation.
 
 ## Build Result
 
-Web2142 modules and Admin1713 modules built. Native local Node is24.19.0; the
-required official Node22 CI execution is still pending. Client assets retain
-the reviewed design/logo/icons. No artifact-preparation or release workflow was
-dispatched without its successful main CI prerequisite.
+Web/Admin/API/full shared terminal and owned-engine builds passed their required
+workflow gates. The existing installed coordinator rebuilt from the selected
+immutable archive and passed health before publishing the success marker.
+The main JS asset is `/assets/index-XPDcQ544.js`, SHA256
+`617a56428d4a7aa86615b2bcab988c0a1a41119479aa5d18abc16da7896f80da`;
+CSS `/assets/index-DhAK_uD7.css`, SHA256
+`78ed1ba7c00acdddc2031a674af3010ea3389ef05b7c2bd4795d63636722ba2d`.
+Existing bundle-size optimization remains outside this release.
 
 ## Git Status / Commit
 
-- Main and feature remote:3f6a657316e694e834e4c9c76966edc4d96c744b, VERIFIED.
-- New commit: test(ui): preserve closed release scope for approved Telegram workspace.
-- Original UI commit9753985b is retained in ancestry.
-- Rollback branch:codex/rollback-telegram-ui-20261025 ->2da63dc5, VERIFIED.
-- Isolated source worktree clean at the final source check.
-- Runtime/main/admin/owned and independent Paper remain on2da63dc5; no activation.
-- Immutable artifact preparation: NOT STARTED.
-- Independent one-use Guard approval: NOT ISSUED.
-- Production Release workflow: NOT STARTED.
+Remote main and the clean managed candidate checkout match `3f6a657316e694e834e4c9c76966edc4d96c744b`.
+The normal source publication and preserved rollback branch remain verified;
+no force push, reset or unrelated/private-file staging occurred. Main/admin/owned
+runtime now match source. Independent Paper intentionally remains on `2da63dc5441928c5c325067869445e8732bde48c`
+because this UI-only release changes no Paper code. No new source commit or
+default-branch push was needed for the Windows setup or final operational receipt.
+The source HANDOFF/release document already points to this dated AI Log receipt
+for final runtime evidence, keeping the closed release candidate byte-identical.
 
 ## Remaining Issues
 
-1. Restore a working, approved isolated Linux CI execution host. The owner has
-   been asked to approve missing Windows prerequisites; no installation is implied
-   by elapsed time or the earlier deployment approval.
-2. Pass the full exact-main Production CI, prepare and verify retained artifact
-   bytes/tree, then use unchanged independent Guard/OIDC release and verify actual
-   runtime/public assets and customer interface.
-3. Revalidate runtime/control pins and backup freshness before eventual activation.
+No deployment gate remains for this approved UI release. Original inner financial
+forms and existing partner presentation remain in scope as preserved behavior;
+this release does not claim a wholesale redesign or full feature parity. Windows
+IPC preservation directories and private diagnostic receipts remain available.
 
 ## Risks / Limitations
 
-This report is not a successful deployment receipt. The main bot remains on its
-previous release, with services active. No live order, account operation, reset,
-forced scan, migration, credential/webhook change, worker activation, risk/credit
-policy change, paid CI budget change or profitability claim was made.
-
-Automatic approval review rejected a proposed process-memory credential read;
-it was not executed or retried indirectly. Normal bot identity verification then
-succeeded using only the service's explicitly configured env file, without
-displaying credentials. That rejection is resolved by the supported source and
-is not the remaining CI blocker. Native app launch approval timing out was also
-not treated as installation consent.
+The preview is synthetic; production visual checks used only existing read-only
+data. Passed tests, service health, HTTP200 and static assets are not proof of
+private exchange execution, economic performance or profitability. No test order,
+reset, forced scan, profile edit, uncertain-hold deletion, account migration or
+credit/risk/strategy change was performed. Private account figures, Telegram
+initialization data, credentials, raw backups and diagnostic artifacts are excluded
+from this report. Python urllib public probes received403 while the unchanged
+coordinator's standard curl routes and the Telegram browser worked; no edge or
+security setting was changed to make those probes pass.
 
 ## Recommended Next Step
 
-Resolve the clearly described local prerequisite decision or provide an existing
-approved isolated host. Continue the already-authorized release through the full
-unchanged gates. Do not claim that source publication or backup success alone
-updated the main bot.
+Use the official Mini App. If another device still shows the previous in-memory
+page, close and reopen the app. The retained predecessor refs/releases and private
+cold-backup proof remain available for the existing rollback process.
 
-References:
-- https://github.com/signal0verse/signalverse-main/actions/runs/40137578402
-- https://learn.microsoft.com/en-us/windows/wsl/basic-commands
-- https://docs.docker.com/desktop/setup/install/windows-install/
-
-## 2026-10-25 06:42 local — Windows prerequisite installed, restart required
-
-This update supersedes the installation-decision-pending state above. The owner
-explicitly approved preparing the Linux prerequisite on this Windows machine.
-The standard elevated Microsoft command `wsl.exe --install --no-distribution`
-completed with exit0. WSL3.0.3.0/kernel6.18.54.1-1 are installed;
-VirtualMachinePlatform reports enabled, hardware virtualization/SLAT are True,
-and component servicing reports a required restart. No automatic/forced restart,
-unrelated distribution, firmware edit or production runtime change was performed.
-Official exact-main CI40137578402 remains queued on source3f6a6573 until the
-post-restart Docker/isolated-runner environment is verified and started.
-
-The installation and continuation receipts are retained privately. Full sanitized
-installation report, with remote bytes verified:
-https://github.com/signal0verse/SignalVerse-AI-Log/blob/b6b90a8254868b0d3e7d22c3bc26c9a4de56ac5f/reports/infrastructure/2026-10-25-windows-wsl-ci-prerequisite-setup.md
-
-The main bot has not yet adopted the new UI. Successful full main CI, immutable
-artifact verification, fresh server/control/backup evidence, existing independent
-Guard authorization and official release/actual UI verification remain required.
+Windows prerequisite and restart details: [verified setup report](https://github.com/signal0verse/SignalVerse-AI-Log/blob/master/reports/infrastructure/2026-10-25-windows-wsl-ci-prerequisite-setup.md).
