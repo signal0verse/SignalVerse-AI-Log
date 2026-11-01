@@ -29,7 +29,7 @@ release, financial account mutation or scheduler activation occurred in this tas
 
 ## Confirmed production findings
 
-Read-only audit on 2026-11-01, initially10:08–10:13 UTC and repeated10:51:55 UTC:
+Read-only audit on 2026-11-01, initially10:08–10:13 UTC and repeated11:09:58 UTC:
 
 | Item | Actually observed |
 | --- | --- |
@@ -41,7 +41,7 @@ Read-only audit on 2026-11-01, initially10:08–10:13 UTC and repeated10:51:55 U
 | Prediction learning gate | Absent; untouched |
 | Autonomous Demo ledger | 0 total,0 open |
 | New evaluation trade columns | 0 present; migration remains unapplied |
-| Latest entry receipt | 10:49:27.997 UTC, success=true, scanned50, opened0 |
+| Latest entry receipt | 11:08:28.774 UTC, success=true, scanned50, opened0 |
 
 Earlier aggregate inspection found two saved/enabled personal Demo accounts.
 The screenshot's disabled label therefore did not establish that the actual
@@ -175,8 +175,9 @@ Excluded from this batch: the legacy production-credential-loading prediction-ma
 - Actual PostgreSQL migration/RPC15/15, final exit0 including cluster/container cleanup. Migration LF SHA-256:500396ceeef39f44a33ba266349b5b300e0d29151ad93e98031a665d237ba41d.
 - Web Vite build PASS:2185 modules; index-juT_FJ2k.js. Admin build PASS:1713 modules; index-ZYEA9_q8.js. Existing large-chunk warning remains.
 - Strict tsc for the three new modules PASS. Actual API strict comparison:20 baseline diagnostics,20 current,0 introduced. No claim of a clean pre-existing full application typecheck.
-- git diff --check PASS; isolated feature worktree clean; all25 file hashes plus their manifest verified after commit.
+- git diff --check PASS; tracked feature source clean; only recognized local build outputs untracked; all25 file hashes plus their manifest verified after commit.
 - Official current PR CI [41300410462](https://github.com/signal0verse/signalverse-main/actions/runs/41300410462): IN PROGRESS on exact source675e20bcccb4c94879c990a9c6c247d5c7a12db7 at latest inspection, not PASS. Initial run41299831886 at67554178 passed555/557 and failed two cases in its first compatibility stage: old Copy Trade expected no other App additions; a frozen Spot test expected the CI workflow to have no additive test steps. Both successor readers were repaired while preserving every original assertion. Independent raw-current Copy Trade/routing and new source-preservation tests passed12/12; final source suite5/5 passed after the frozen reader fix. Product/backend/SQL bytes remain identical to the previously tested implementation. The immutable frozen test input/hash and every release/cache authority stay exact. The obsolete queued task-owned dispatch41299840385 was cancelled by this task after publishing the repaired head; it was never a passing CI receipt.
+- Additional owned engine/shared native terminal builds PASS on exact source675e20bcccb4c94879c990a9c6c247d5c7a12db7. Shared terminal2209 modules; manifest source matches, prediction_enabled=false for the partner host, auto_activation=false. These are local build checks, not an official retained production artifact. The task SQL test container was independently confirmed ABSENT afterward.
 - Official immutable production artifact: NOT PREPARED; no main push CI/release approval exists for this candidate.
 
 Actual SQL tests ran the real migration twice and exercised its real RPC in a
