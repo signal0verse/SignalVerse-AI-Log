@@ -10,7 +10,7 @@
 - Branch: codex/prediction-product-recovery-20261101.
 - Starting production/source: f55cba212d92b66b7105be6776138478c1a1f27f.
 - Integrated source base: 186e13aade593307fa1c746f37035efa359731a2.
-- Final candidate / PR / CI: 67554178e12437f52ce6506b956310123a81a680; draft PR [#257](https://github.com/signal0verse/signalverse-main/pull/257)..
+- Final candidate / PR / CI: 675e20bcccb4c94879c990a9c6c247d5c7a12db7; draft PR [#257](https://github.com/signal0verse/signalverse-main/pull/257)..
 - **Release status: NOT DEPLOYED. Migration: NOT APPLIED. New live positions: NOT VERIFIED.**
 
 ## Objective and authorization
@@ -133,7 +133,7 @@ and docs/prediction-scheduled-evaluation.md. Exact paths are in the PR diff.
 
 ## Validation evidence
 
-All31 safe local Prediction suites passed. The full batch passed30; after preserving the legacy scheduler assertions and adding raw-current shell equivalence, its final7 cases passed outside the Windows Bash sandbox restriction. The updated closed-source suite was rerun4/4 PASS. Exact commands/results:
+All31 safe local Prediction suites passed. The full batch passed30; after preserving the legacy scheduler assertions and adding raw-current shell equivalence, its final7 cases passed outside the Windows Bash sandbox restriction. The updated closed-source suite was rerun5/5 PASS. Exact commands/results:
 
 | Command (`node --experimental-strip-types --test scripts/<file>`) | Result |
 | --- | --- |
@@ -171,12 +171,12 @@ All31 safe local Prediction suites passed. The full batch passed30; after preser
 
 Excluded from this batch: the legacy production-credential-loading prediction-market-position-credit-test.mjs; the SQL suite was run separately in the isolated container.
 
-- Actual-source evaluation18/18; component/request UI6/6; source-preservation/negative scope4/4; retained original plus raw-current scheduler7/7.
+- Actual-source evaluation18/18; component/request UI6/6; source-preservation/negative scope5/5; retained original plus raw-current scheduler7/7.
 - Actual PostgreSQL migration/RPC15/15, final exit0 including cluster/container cleanup. Migration LF SHA-256:500396ceeef39f44a33ba266349b5b300e0d29151ad93e98031a665d237ba41d.
 - Web Vite build PASS:2185 modules; index-juT_FJ2k.js. Admin build PASS:1713 modules; index-ZYEA9_q8.js. Existing large-chunk warning remains.
 - Strict tsc for the three new modules PASS. Actual API strict comparison:20 baseline diagnostics,20 current,0 introduced. No claim of a clean pre-existing full application typecheck.
-- git diff --check PASS; isolated feature worktree clean; all23 file hashes plus their manifest verified after commit.
-- Official exact-branch CI [41299840385](https://github.com/signal0verse/signalverse-main/actions/runs/41299840385): QUEUED at final inspection, not PASS. It is workflow_dispatch on the exact source above and does not prepare/release an artifact. PR CI is separate.
+- git diff --check PASS; isolated feature worktree clean; all25 file hashes plus their manifest verified after commit.
+- Official current PR CI [41300410462](https://github.com/signal0verse/signalverse-main/actions/runs/41300410462): IN PROGRESS on exact source675e20bcccb4c94879c990a9c6c247d5c7a12db7 at latest inspection, not PASS. Initial run41299831886 at67554178 passed555/557 and failed two cases in its first compatibility stage: old Copy Trade expected no other App additions; a frozen Spot test expected the CI workflow to have no additive test steps. Both successor readers were repaired while preserving every original assertion. Independent raw-current Copy Trade/routing and new source-preservation tests passed12/12; final source suite5/5 passed after the frozen reader fix. Product/backend/SQL bytes remain identical to the previously tested implementation. The immutable frozen test input/hash and every release/cache authority stay exact. The obsolete queued task-owned dispatch41299840385 was cancelled by this task after publishing the repaired head; it was never a passing CI receipt.
 - Official immutable production artifact: NOT PREPARED; no main push CI/release approval exists for this candidate.
 
 Actual SQL tests ran the real migration twice and exercised its real RPC in a
@@ -191,6 +191,8 @@ This proves SQL behavior on an isolated faithful schema, not production migratio
 compatibility, restore acceptance or live execution.
 
 ### Errors, retries and time limits
+
+- Initial official CI failed two historical source-compatibility assertions (555/557 passed, not a successful run). Exact successor views were added for the separate Prediction edits and four additive CI lines. All original assertion expressions and raw-current product checks remain; current full CI is pending, not declared passed.
 
 - Initial report publication used a connected read-only profile and was denied.
   The already-connected repository-owner profile was then used only within the
@@ -261,7 +263,7 @@ was scored and no new Phase9A sample was declared certified.
 
 ## Git/publication state and remaining work
 
-FINAL_67554178e12437f52ce6506b956310123a81a680; draft PR [#257](https://github.com/signal0verse/signalverse-main/pull/257).
+Candidate675e20bcccb4c94879c990a9c6c247d5c7a12db7 was pushed without force to the feature branch. Draft PR [#257](https://github.com/signal0verse/signalverse-main/pull/257) has that exact head and base186e13aade593307fa1c746f37035efa359731a2. Main was not merged/changed by this task. Current PR CI [41300410462](https://github.com/signal0verse/signalverse-main/actions/runs/41300410462) remains IN PROGRESS; initial failed CI and its test-only repairs are recorded above. Only this task's obsolete queued dispatch was cancelled; the independently authored main CI41297423831 was cancelled by an external actor. No artifact, Guard approval, deployment or migration was attempted. Initial AI-Log publication8827d8e2be57f39a91e80eeb11a583a326f07d4c was verified byte-for-byte, by Git blob and as a single-report commit. This same report is updated with the corrected source/CI state, using the known remote blob to prevent concurrent overwrite and repeating remote byte/blob/single-file verification before claiming publication.
 
 Root's pre-existing HANDOFF/private/untracked work was preserved. The feature
 worktree was isolated from it and rebased onto fetched main without force-push.
