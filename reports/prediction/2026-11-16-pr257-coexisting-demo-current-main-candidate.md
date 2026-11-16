@@ -56,14 +56,19 @@ Local exact-source archive is 8,382,475 bytes, 6,133 below the unchanged ceiling
   with no host mounts or network and no connection to the production database.
 - 92 additional Engine v2, Shadow outcome, AI diagnostic and per-user checks passed.
 - 174 cases executed from the two immutable test programs and passed.
+- All 23 script invocations from the Prediction CI gate passed locally after
+  rerunning the Bash fixture outside the Windows sandbox that prevented Git
+  Bash startup. The Windows scheduler run passed eight cases and skipped the
+  Linux-only PostgreSQL launch, which has a separate disposable database receipt.
 - Web and admin builds passed. All 14 API entry points bundled for Node 22.
 - 228 protected Prediction declarations, non-Prediction UI, other Analysis/help code, and existing scheduler and release workflows matched current main. Git diff whitespace checks passed. The feature source is tracked and clean.
 - Nine exact-source historical archive and preservation checks passed locally, including all three assertions that rejected the previous PR package.
-- [Exact source PR CI](https://github.com/signal0verse/signalverse-main/actions/runs/43867865322) recorded **in_progress** and 4 passed steps. The tested GitHub merge tree matches the candidate tree `9485bd9b356ac3d062e67a449c3bc1818f352dd7`. Most recent active or failed steps: Install dependencies. The first new run failed six historical scope and type assertions. The revision restored rejection of injected unreviewed source, preserved prior input inventories, and retained the original import order for shared React and chart dependencies. The targeted frontend diagnostic test then passed with 66 original and 66 current diagnostics, with zero introduced or dropped. The second run passed the formerly failing source gate, then was superseded by the child-test correction. The final child suite independently executed and passed all 25 cases after removing Node’s inherited test context. The original assertions and workflow remain in force. The [third run](https://github.com/signal0verse/signalverse-main/actions/runs/43861548174) passed 1,294 of 1,295 Spot preservation cases, including the prior archive failures. Its sole remaining failure was an Analysis historical source comparison that included the new Prediction-only help line. This revision proves that removing just that line recovers current-main Analysis source byte for byte, then runs the original comparison. All 135 nested Analysis cases passed locally on the revision. The current Spot preservation gate was pending. The current Prediction gate was pending.
+- [Exact source PR CI](https://github.com/signal0verse/signalverse-main/actions/runs/43867865322) recorded **in_progress** and 57 passed steps. The tested GitHub merge tree matches the candidate tree `9485bd9b356ac3d062e67a449c3bc1818f352dd7`. Most recent active or failed steps: Test MEXC native history accounting and closed scope offline. The first new run failed six historical scope and type assertions. The revision restored rejection of injected unreviewed source, preserved prior input inventories, and retained the original import order for shared React and chart dependencies. The targeted frontend diagnostic test then passed with 66 original and 66 current diagnostics, with zero introduced or dropped. The second run passed the formerly failing source gate, then was superseded by the child-test correction. The final child suite independently executed and passed all 25 cases after removing Node’s inherited test context. The original assertions and workflow remain in force. The [third run](https://github.com/signal0verse/signalverse-main/actions/runs/43861548174) passed 1,294 of 1,295 Spot preservation cases, including the prior archive failures. Its sole remaining failure was an Analysis historical source comparison that included the new Prediction-only help line. This revision proves that removing just that line recovers current-main Analysis source byte for byte, then runs the original comparison. All 135 nested Analysis cases passed locally on the revision. The current Spot preservation gate was success. The current Prediction gate was pending.
 
-During archive work an alternate legacy Stablecoin suite exposed four existing
-panel-related assertions under a supplemental local run. That alternate
-transport was discarded and the Stablecoin file stayed byte-identical to main.
+Windows CRLF checkout formatting caused four failures in the supplemental
+Stablecoin test's LF-only function matcher. The same complete, unchanged
+Stablecoin engine program passed on an exact committed LF snapshot. The
+alternate Stablecoin transport was discarded.
 An official packaging CLI invocation requires CI provenance. The package check
 instead used the unchanged producer's local library API, independently verified
 every committed file and executable bit, and did not produce a release receipt.
@@ -71,8 +76,9 @@ every committed file and executable bit, and did not produce a release receipt.
 ## Production and publication state
 
 Read-only verification returned healthy runtime at the main base at 19:30 MYT,
-with matching release symlink. Existing Demo entry/resolution were enabled and
-the learning gate was absent. The verified runtime source continued disabling
+with another matching SHA, release symlink and health receipt at 20:58 MYT.
+Existing Demo entry/resolution were enabled and the learning gate was absent.
+The verified runtime source continued disabling
 Real Prediction. Evaluation columns were absent. No migration, account save,
 production deploy, forced tick, live evaluation position, wallet action or
 rollback occurred. First future genuine evaluation and statistical validation
