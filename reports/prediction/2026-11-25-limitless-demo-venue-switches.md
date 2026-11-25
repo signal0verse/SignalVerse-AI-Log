@@ -19,7 +19,7 @@ Date 2026-11-25, Asia/Kuala_Lumpur.
 
 - `npm run build` passed under Node 22.23.5 for the web and admin applications, with existing bundle-size warnings. `git diff --check` passed. Raw TypeScript checking reported the same 66 inherited diagnostics as the verified base after normalizing shifted line numbers.
 - All 38 tests in the targeted Limitless, scheduled Demo, and wallet run passed under Node 22.23.5. Coverage included simultaneous panel mounts, either switch off, on-demand wallet, read-only access, public request isolation, retry, fee math, and existing owner-scoped Polymarket behavior.
-- Node 22 verified the exact source delta in a clean checkout. CI planning selected all 75 original gates, including Prediction. Planning does not establish a hosted run result.
+- Node 22 verified the exact source delta in a clean checkout. CI planning selected all 75 original gates, including Prediction. Planning does not establish a hosted run result. Additional historical source-reader and scheduler suites did not finish in the Windows verification window. No full CI pass or disposable PostgreSQL result is claimed.
 - The production host could read the public Limitless catalog with HTTP 200. In a separate live-public-data probe, the exact candidate API returned HTTP 200 from an isolated in-memory account. The tracked crypto set contained 16 active markets, with four daily and zero weekly labels. Twelve books were examined. All four daily books supported an estimated 10 USDC fill on both sides in that snapshot. Their spreads were 6.0, 15.7, 8.4, and 49.3 percentage points for BTC, ETH, Solana, and XRP respectively. All abstained for insufficient admissible evidence, and the isolated position count was zero.
 
 ## Open verification
